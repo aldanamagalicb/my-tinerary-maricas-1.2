@@ -1,0 +1,46 @@
+[
+  {
+    "id": "admin1",
+    "name": "Eric",
+    "lastName": "Rodriguez",
+    "age": 23,
+    "email": "feric.rodriguez@gmail.com",
+    "password": "Chau6789",
+    "code": "45da17q9",
+    "verified": true,
+    "logged": true
+  },
+  {
+    "id": "admin2",
+    "name": "Mauro",
+    "lastName": "Harretche",
+    "age": 30,
+    "email": "mauritoht@gmail.com",
+    "password": "Yhasf513",
+    "code": "q8fdfs4a",
+    "verified": true,
+    "logged": true
+  },
+  {
+    "id": "admin3",
+    "name": "Rocio",
+    "lastName": "Duarte",
+    "age": 25,
+    "email": "rochiduarte@gmail.com",
+    "password": "Hgaf942",
+    "code": "a8asd4q1r",
+    "verified": true,
+    "logged": true
+  },
+  {
+    "id": "admin4",
+    "name": "Matias",
+    "lastName": "Rodriguez",
+    "age": 25,
+    "email": "matirodriguez@gmail.com",
+    "password": "Padf2649",
+    "code": "qw8e42sd1g",
+    "verified": true,
+    "logged": true
+  }
+]

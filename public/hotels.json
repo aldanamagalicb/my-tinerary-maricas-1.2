@@ -1,0 +1,98 @@
+[
+    {
+        "id": "ht1",
+        "name": "HTL 9 de Julio",
+        "photo": ["https://imageshack.com/i/pnHW7xXfj", "https://imageshack.com/i/poPpMqJ6j", "https://imageshack.com/i/pnUnorxSj"], 
+        "capacity": 125,
+        "cityId": "city1",
+        "userId": "admin1"
+    },
+    {
+        "id": "ht2",
+        "name": "Esplendor by Wyndham Asunción",
+        "photo": ["https://imageshack.com/i/poGcC7vGj", "https://imageshack.com/i/pnS3M6ysj", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/a1/86/1e/esplendor-asuncion-a.jpg?w=1200&h=-1&s=1"],
+        "capacity": 85,
+        "cityId": "city2",
+        "userId": "admin2"
+    },
+    {
+        "id": "ht3",
+        "name": "Royal Tulip Brasília Alvorada",
+        "photo": ["https://imageshack.com/i/pmb0qwN3j", "https://imageshack.com/i/poBRJZB6j", "https://imageshack.com/i/poDMUm1Vj"],
+        "capacity": 138,
+        "cityId": "city3",
+        "userId": "admin3"
+    },
+    {
+        "id": "ht4",
+        "name": "Meliá Caracas",
+        "photo": ["https://imageshack.com/i/pm9LDcgLj", "https://imageshack.com/i/pnv1Bb2nj", "https://imageshack.com/i/poKQekOpj"],
+        "capacity": 75,
+        "cityId": "city4",
+        "userId": "admin4"
+    },
+    {
+        "id": "ht5",
+        "name": "Resorts World Las Vegas",
+        "photo": ["https://imageshack.com/i/pm4c2LJAj", "https://www.asgam.com/wp-content/uploads/2021/08/rwlv-casino-credit-megan-blair-750x482.jpg", "https://imageshack.com/i/pm4c2LJAj"],
+        "capacity": 215,
+        "cityId": "city5",
+        "userId": "admin1"
+    },
+    {
+        "id": "ht6",
+        "name": "Sheraton Lima Historic Center",
+        "photo": ["https://imageshack.com/i/pmEfKKroj", "https://imageshack.com/i/pnLDzUsLj", "https://pix8.agoda.net/hotelImages/7966/0/140a7f1932b366e3c345f698c3b7ad31.jpg?ca=8&ce=1&s=1024x768"],
+        "capacity": 132,
+        "cityId": "city6",
+        "userId": "admin2"
+    },
+    {
+        "id": "ht7",
+        "name": "After Hotel Montevideo",
+        "photo": ["https://imageshack.com/i/poeXMH0Yj", "https://cf.bstatic.com/xdata/images/hotel/max1024x768/230283689.jpg?k=8e1826d540c68ebb23bb956580ecbbba9d74bf96bf30a928f98bf88675921e95&o=&hp=1", "https://imageshack.com/i/pmg3nKraj"],
+        "capacity": 93,
+        "cityId": "city7",
+        "userId": "admin3"
+    },
+    {
+        "id": "ht8",
+        "name": "El InterContinental Paris le Grand",
+        "photo": ["https://imageshack.com/i/pmiSgvMij", "https://imageshack.com/i/pnb2b3Gzj", "https://imageshack.com/i/povjhzaVj"],
+        "capacity": 248,
+        "cityId": "city8",
+        "userId": "admin4"
+    },
+    {
+        "id": "ht9",
+        "name": "Masaya Quito",
+        "photo": ["https://imageshack.com/i/pnJuJWbzj", "https://imageshack.com/i/pnodict6j", "https://imageshack.com/i/po5Khdw7j"],
+        "capacity": 136,
+        "cityId": "city9",
+        "userId": "admin1"
+    },
+    {
+        "id": "ht10",
+        "name": "Hotel Arena Blanca",
+        "photo": ["https://imageshack.com/i/pmuy382xj", "https://imageshack.com/i/pmhEiQ1Dj", "https://media.staticontent.com/media/pictures/3af02a0e-3b45-465d-b4a6-7fbe3e9af6c5"],
+        "capacity": 128,
+        "cityId": "city10",
+        "userId": "admin2"
+    },
+    {
+        "id": "ht11",
+        "name": "Hotel Mercure Santiago Centro",
+        "photo": ["https://imageshack.com/i/pn87ut0hj", "https://imageshack.com/i/pm74HDSVj", "https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/39/08/390891_v11.jpeg"],
+        "capacity": 79,
+        "cityId": "city11",
+        "userId": "admin3"
+    },
+    {
+        "id": "ht12",
+        "name": "Hotel Recoleta Sur",
+        "photo": ["https://imageshack.com/i/poBDYgu9j", "https://imageshack.com/i/pnmWtZC2j", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/b5/ed/07/ker-recoleta-hotel-spa.jpg?w=700&h=-1&s=1"],
+        "capacity": 68,
+        "cityId": "city12",
+        "userId": "admin4"
+    }
+]
