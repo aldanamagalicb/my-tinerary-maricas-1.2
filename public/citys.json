@@ -1,0 +1,98 @@
+[
+    {
+        "id": "city1",
+        "name": "Buenos Aires",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pod0AIYMj",
+        "population": 15625084,
+        "userId": "adm1"
+    },
+    {
+        "id": "city2",
+        "name": "Asuncion",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/poK4Qomgj",
+        "population": 520917,
+        "userId": "adm1"
+    },
+    {
+        "id": "city3",
+        "name": "Brasilia",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/poRnslUpj",
+        "population": 3015268,
+        "userId": "adm1"
+    },
+    {
+        "id": "city4",
+        "name": "Caracas",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pnBpyK73j",
+        "population": 3500000,
+        "userId": "admin1"
+    },
+    {
+        "id": "city5",
+        "name": "Las Vegas",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pnkLT0DWj",
+        "population": 646790,
+        "userId": "adm1"
+    },
+    {
+        "id": "city6",
+        "name": "Lima",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pnYigIYMj",
+        "population": 10000000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city7",
+        "name": "Montevideo",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/poWfYvNsj",
+        "population": 1381000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city8",
+        "name": "Paris",
+        "continent": "Europa",
+        "photo": "https://imageshack.com/i/pmstf9fnj",
+        "population": 2161000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city9",
+        "name": "Quito",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pobc9xnBj",
+        "population": 2011000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city10",
+        "name": "San Andres",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pns9sHLMj",
+        "population": 48299,
+        "userId": "adm1"
+    },
+    {
+        "id": "city11",
+        "name": "Santiago",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pnwqvz31j",
+        "population": 5614000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city12",
+        "name": "Sucre",
+        "continent": "America",
+        "photo": "https://imageshack.com/i/pmuPlIDGj",
+        "population": 287000,
+        "userId": "adm1"
+    }
+]
