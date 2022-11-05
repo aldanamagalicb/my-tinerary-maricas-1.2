@@ -1,0 +1,52 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 80%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(204, 204, 204);
+}
+
+h2 {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(204, 204, 204);
+}
+
+a:hover , h2:hover{
+    text-shadow: #17788d  5px 5px 10px;
+    
+}
+
+.nav {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #00374a;
+}
+
+.nav-boton{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+}
