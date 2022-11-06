@@ -1,0 +1,56 @@
+.carousel{
+    width: 650px;
+    height: 350px;
+    border-radius: 5px;
+}
+
+.buttonCar{
+    color: white;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #03030319;
+    border-radius: 5px;
+    backdrop-filter: blur(1rem);
+    width: 2rem
+}
+
+.buttonCar:hover, .scrollbuton:hover{
+    background-color: #03030358;
+}
+
+
+.cont-carousel{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    max-width: 72%;
+    background-color: #03030319;
+    justify-content: center;
+    gap: 1em;
+    border-radius: 5px;
+    backdrop-filter: blur(1rem);
+}
+
+.tittleCar{
+    color: #ffffff;
+    text-shadow: black 0 0 10px;
+}
+
+@media screen and (max-width: 990px) {
+    .carousel{
+        width: 80%;
+        height: 20%;
+    }
+
+    .cont-carousel{
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 407px){
+    .tittleCar{
+        font-size: larger;
+    }
+
+}

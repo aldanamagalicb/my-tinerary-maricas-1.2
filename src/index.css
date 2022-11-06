@@ -242,6 +242,10 @@
   background-color: lime;
 }
 
+.bg-pro{
+  background-color: #17788d;
+}
+
 /* Tamaño Imagenes */
 
 .img-w-1{
@@ -1003,6 +1007,10 @@
   min-height: 80vh;
 }
 
+.vh-70{
+  min-height: 70vh;
+}
+
 .gap-1{
   gap: 1rem;
 }
@@ -1055,22 +1063,10 @@
   background-size: cover;
 }
 
-.footer{
-  font-size: medium;
-  display: flex;
-  padding: 1%;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  height: 12vh;
-  background-color: #00374a;
-}
-
 .call-card{
   font-weight: 600;
   color: rgb(204, 204, 204);
-  background-color: #00374a;
+  background-color: #42b7de;
   border-radius: 0.5rem;
   padding: 1rem;
   cursor: pointer;
@@ -1079,4 +1075,29 @@
 .call-card:hover{
   background-color: #17788d;
 }
+
+.scrollbuton{
+  color: white;
+  position: fixed;
+  border: none;
+  border-radius: 5px;
+  background-color: #03030319;
+  bottom: 120px;
+  right: 18px;
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+  backdrop-filter: blur(1rem);
+}
+
+.slogan{
+  width: 100%;
+  text-align: center;
+  font-size: xx-large;
+  color: #00374a;
+}
+
+
+
+
 

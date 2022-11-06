@@ -50,3 +50,16 @@ a:hover , h2:hover{
     justify-content: space-around;
     width: 20%;
 }
+
+@media screen and (max-width: 990px){
+    .nav-boton{
+    width: 40%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .nav-boton{
+    width: 60%;
+
+    }
+}
