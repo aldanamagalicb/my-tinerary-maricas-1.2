@@ -13,10 +13,11 @@ export default function Footer() {
                     <h4>My Tinerary Project 2022 - © All rights reserved</h4>  
                 </div>
                 <ul className='text-decoration flex gap-1'>
-                    <Btnfooter rute='/index' className='text-decoration list-none' text='Home' />
+                    <Btnfooter rute='/Home' className='text-decoration list-none' text='Home' />
                     <Btnfooter rute='/cities' className='text-decoration list-none' text='Cities' />
                     <Btnfooter rute='/hotels' className='text-decoration list-none' text='Hotels' />
                 </ul>
+                
         </footer>
         )
 }

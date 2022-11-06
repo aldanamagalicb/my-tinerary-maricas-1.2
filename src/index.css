@@ -1027,32 +1027,6 @@
   gap: 2.5rem;
 }
 
-.pos-abs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1.5em;
-    width: 4.5em;
-    background-color: #00374a;
-    border-radius: 5px;
-    position: absolute;
-    top: 109%;
-    right: 2.5em;
-}
-
-.pos-abs-1{
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1.5em;
-    width: 4.5em;
-    background-color: #00374a;
-    border-radius: 5px;
-    position: absolute;
-    top: 113%;
-    right: 2.5em;
-}
-
 .bg-img-1{
   background-image: url(../public/img/bgimg1.jpg);
   background-size: cover;
@@ -1066,7 +1040,7 @@
 .call-card{
   font-weight: 600;
   color: rgb(204, 204, 204);
-  background-color: #42b7de;
+  background-color: #00374a;
   border-radius: 0.5rem;
   padding: 1rem;
   cursor: pointer;
