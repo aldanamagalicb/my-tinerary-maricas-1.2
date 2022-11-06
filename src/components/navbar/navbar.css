@@ -15,28 +15,29 @@ body {
     font-weight: 600;
 }
 
-li {
+.nav li {
     list-style: none;
 }
 
-a {
+.nav a {
     cursor: pointer;
     text-decoration: none;
     color: rgb(204, 204, 204);
 }
 
-h2 {
+.nav h2 {
     cursor: pointer;
     text-decoration: none;
     color: rgb(204, 204, 204);
 }
 
-a:hover , h2:hover{
+.nav a:hover , .nav h2:hover{
     text-shadow: #17788d  5px 5px 10px;
     
 }
 
 .nav {
+    min-height: 12vh;
     padding: 1em;
     display: flex;
     align-items: center;

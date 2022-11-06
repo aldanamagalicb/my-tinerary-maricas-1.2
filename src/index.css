@@ -990,6 +990,11 @@
 }
 
 .main-full{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 77.9vh;
   flex-grow: 1;
   width: 100%;
 }

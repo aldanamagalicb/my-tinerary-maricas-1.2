@@ -5,7 +5,7 @@ export default function CallToAction(props) {
     let { rute, className, text } = props
 
     return (
-        <NavLink to={rute} style={{textDecoration:"none"}}>
+        <NavLink to={rute}>
             <button className={className}>{text}</button>
         </NavLink>
     )

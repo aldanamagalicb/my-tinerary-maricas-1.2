@@ -1,5 +1,5 @@
 import BotonHome from "./BotonHome";
-import "../navbar.css";
+import "./navbar.css";
 import BotonUsers from "./BotonUsers";
 
 function Navbar() {

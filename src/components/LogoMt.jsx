@@ -4,7 +4,7 @@ export default function LogoMt(props) {
     let {link, className} = props
     return (
         <div className={className}>
-            <img src={link} alt="" />
+            <img src={link} alt="" width='30%' />
         </div>
     )
 }

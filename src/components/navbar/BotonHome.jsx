@@ -1,7 +1,7 @@
 import React from 'react'
 import BotonDown from './BotonDown'
 import { useState } from 'react';
-import IconUser from './IconUser';
+import IconHome from './IconHome';
 
 export default function BotonUsers() {
     const [show, setShow] = useState(false);
@@ -10,12 +10,12 @@ export default function BotonUsers() {
         console.log(show)
     }
     return (
-        <div className='flex column'>
-            <BotonDown text={<IconUser />} className='w-100' onClick={display}/>
+        <div className='flex column center'>
+            <BotonDown text={<IconHome />} className='w-100' onClick={display}/>
             {show && (
             <div className='flex column'>
-                <BotonDown text="Sign In"  />
-                <BotonDown text="Sign Up" />
+                <BotonDown text="Cities" rute='/cities'  />
+                <BotonDown text="Hotels" rute='/hotels'/>
             </div>
             )}
         </div>
