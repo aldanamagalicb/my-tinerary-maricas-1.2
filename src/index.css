@@ -901,6 +901,11 @@
   margin: 7rem;
 }
 
+.mx-1{
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
 .p-0{
   padding: 0;
 }
@@ -969,6 +974,11 @@
 .py-2{
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-1{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* Border Radius */
@@ -1074,8 +1084,6 @@
   font-size: xx-large;
   color: #00374a;
 }
-
-
 
 
 

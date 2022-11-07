@@ -7,11 +7,7 @@ export default function BotonDown(props) {
     let {text, onClick, className, rute} = props
     return (
         <NavLink to={rute}>
-            <li onClick={onClick} className={className}>
-                <a>
-                    {text}
-                </a>
-            </li>
+            <p onClick={onClick} className={className}>{text}</p>
         </NavLink>
 
     )

@@ -29,7 +29,7 @@ export default function Carousel() {
     }, [number]);
 
     useEffect(() => {
-        fetch("./citys.json")
+        fetch("./cities.json")
             .then(res => res.json())
             .then(res => setCities(res))
 
@@ -79,8 +79,7 @@ export default function Carousel() {
 
     })
 
-    console.log(detailsHotels);
-    setDetailCities = cities.map(() => {
+        setDetailCities = cities.map(() => {
         let citiesAleatory = aleatory(cities.length - 1)
         if (detailsCities.length < 4 && !detailsCities.includes(cities.photo)) {
             detailsCities.push(cities[citiesAleatory].photo)
@@ -91,7 +90,6 @@ export default function Carousel() {
     if (details.length < 4) {
         setDetails = details.push(detailsActivities, detailsCities, detailsHotels)
     }
-    console.log(details);
 
     return (
 

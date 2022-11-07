@@ -1,0 +1,122 @@
+.CityCard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    border-radius: 16px;
+    background-color: #061116;
+    height: 220px;
+    transition: 0.3s;
+}
+
+.CityCard-container:hover {
+    transition: 0.6s;
+    scale: 1.1;
+    cursor: pointer;
+}
+
+.CityCard-container img {
+    position: relative;
+    border-radius: 16px;
+    width: 280px;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.CityCard-info {
+    position: absolute;
+    margin-top: 90px;
+}
+
+.CityCard-info p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    width: 200px;
+}
+
+.CityCard-details {
+    position: absolute;
+    margin-top: 160px;
+}
+.CityCard-details a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: 0.3s;
+}
+    
+.CityCard-details a:hover {
+    color: #00b4d8;
+    font-size: 14px;
+    transition: 0.5s;
+}
+
+.Cities-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #061116;
+    padding: 0% 10%;
+    gap: 20px;
+}
+
+.Cities-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+.cont-cities {
+    width: 100%;
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+.input-text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-text input{
+    background-color: #eee;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    width: 290px;
+    border-radius: 1rem;
+    color: #061116;
+    cursor: pointer;
+}
+
+.input-text input:focus{
+    outline: none;
+}
+
+label {
+    color: white;
+    text-shadow: black 0 0 10px;
+}
+
+@media (min-width: 768px) {
+    .CityCard-container img {  
+        width: 380px;
+    }
+    .CityCard-info {
+        margin-top: 80px;
+    }
+    .CityCard-info p {
+        font-size: 1.8rem;
+        }
+}
