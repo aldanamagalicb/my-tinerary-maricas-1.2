@@ -38,7 +38,7 @@ export default function SignUp() {
             <nav id="socialLogin">
                 <a href="#" class="google"></a>
             </nav>
-            <p>¿Do you have an account?
+            <p>Do you have an account?
                 <NavLink to='/signin'>
                     <a href='#'> Come to sing in</a>
                 </NavLink>

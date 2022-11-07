@@ -53,7 +53,7 @@ export default function Cities() {
     }
 
     return (
-        <div className='cont-cities bg-img-1'>
+        <div className='cont-cities'>
             <div className='wrap flex center w-100 m-1'>
                 <div className='flex justify-around mx-1 gap-2'>
                     {checkCities.map((continente, index) => {
