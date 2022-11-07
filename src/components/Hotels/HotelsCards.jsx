@@ -6,14 +6,14 @@ export default function HotelCard(props) {
     return (
         <div className='CityCard-container' key={hotel.city}>
             <img className="img-card"
-                     src={hotel.photo[0]}
+                    src={hotel.photo[0]}
                         alt={hotel.name} />
             <div className='CityCard-info'>
                 <p>{hotel.name}</p>
                 <p>Capacity: {hotel.capacity}</p>
             </div>
             <div className='CityCard-details'>
-                <LinkRouter to={`/hotels/${hotel._id}`}>See more</LinkRouter>
+                <LinkRouter to={`/hotels/${hotel.id}`}>See more</LinkRouter>
             </div>
         </div>
 )
