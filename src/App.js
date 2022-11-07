@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound"
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Cities from './pages/Cities';
+import Hotels from './pages/Hotels';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/cities" element={<Cities />} />
+        <Route path="/hotels" element={<Hotels />} />
       </Routes>
     </Layout>
   );

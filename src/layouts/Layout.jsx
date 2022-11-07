@@ -9,7 +9,7 @@ export default function Layout(props) {
         <>
             <AutoToTop />
             <Navbar />
-            <div className='main-full'>
+            <div className='main-full bg-img-2'>
                 {props.children}
             </div>
             <ScrollToTop />
