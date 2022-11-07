@@ -7,6 +7,9 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Cities from './pages/Cities';
 import Hotels from './pages/Hotels';
+import DetailCity from './pages/DetailCity';
+import NewCity from './pages/NewCity';
+
 
 function App() {
   return (
@@ -19,6 +22,8 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/hotels" element={<Hotels />} />
+        <Route path="/detailcity" element={<DetailCity />} />
+        <Route path="/newcity" element={<NewCity />} />
       </Routes>
     </Layout>
   );

@@ -11,7 +11,7 @@ export default function CityCard(props) {
                 <p>{city.continent}</p>
             </div>
             <div className='CityCard-details'>
-                <LinkRouter to={`/cities/${city._id}`}>See more</LinkRouter>
+                <LinkRouter to={`/cities/${city.id}`}>See more</LinkRouter>
             </div>
         </div>
 )
