@@ -1,11 +1,13 @@
 .container {
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vh;
 }
 
-.container img{
-    height: 100%;
-    object-fit: contain;
+
+.bg-img{
+    background-image: url(../public/img/dontFound.jpg);
+    background-size: contain; 
+    background-repeat: no-repeat;
 }

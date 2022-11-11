@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import HotelCard from "../components/Hotels/HotelsCards";
+import NotFound from "./NotFound";
 
 export default function Hotels() {
   let [hotels, setHotels] = useState([]);
@@ -89,16 +90,11 @@ export default function Hotels() {
 
       <div className='Cities-card-container'>
         {filtrarHoteles.length > 0 ? (
-          filtrarHoteles.map((hotel, index) => {
-            return <HotelCard hotel={hotel} key={index} />;
+          filtrarHoteles.map((hotel) => {
+            return <HotelCard hotel={hotel} key={hotel.id} id={hotel.id} />;
           })
         ) : (
-          <img
-            className="img-fluid"
-
-            src="./img/dontFound.jpg"
-            alt="Sorry, not found search"
-          />
+          <NotFound />
         )}
       </div>
     </div>

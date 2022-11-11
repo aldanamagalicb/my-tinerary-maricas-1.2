@@ -2,7 +2,9 @@
     {
         "id": "ht1",
         "name": "HTL 9 de Julio",
-        "photo": ["https://imageshack.com/i/pnHW7xXfj", "https://imageshack.com/i/poPpMqJ6j", "https://imageshack.com/i/pnUnorxSj"], 
+        "photo": ["https://img.nh-hotels.net/VPWgv/qD3OB/original/RC_NH_9-de-julio_104_2000x805-0_117.jpg?output-quality=80&resize=1110:*&composite-to=center,center|1110:380&background-color=white", 
+        "https://x.cdrst.com/foto/hotel-sf/14435/granderesp/htl-9-de-julio-bsas-habitacion-ca1306d.jpg",
+        "https://static.hosteltur.com/app/public/uploads/img/articles/2022/02/10/L_095150_pileta76.jpg"], 
         "capacity": 125,
         "cityId": "city1",
         "userId": "admin1"
@@ -10,7 +12,7 @@
     {
         "id": "ht2",
         "name": "Esplendor by Wyndham Asunción",
-        "photo": ["https://imageshack.com/i/poGcC7vGj", "https://imageshack.com/i/pnS3M6ysj", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/a1/86/1e/esplendor-asuncion-a.jpg?w=1200&h=-1&s=1"],
+        "photo": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/a1/85/09/esplendor-asuncion-a.jpg?w=700&h=-1&s=1", "https://imageshack.com/a/img923/3544/S3M6ys.jpg", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/a1/86/1e/esplendor-asuncion-a.jpg?w=1200&h=-1&s=1"],
         "capacity": 85,
         "cityId": "city2",
         "userId": "admin2"
@@ -18,7 +20,7 @@
     {
         "id": "ht3",
         "name": "Royal Tulip Brasília Alvorada",
-        "photo": ["https://imageshack.com/i/pmb0qwN3j", "https://imageshack.com/i/poBRJZB6j", "https://imageshack.com/i/poDMUm1Vj"],
+        "photo": ["https://cf.bstatic.com/xdata/images/hotel/max1024x768/20170551.jpg?k=34aefee5153017989801c062582c1e50f770c6a9da72ffc2657fdfcbe2a91dd5&o=&hp=1", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.trivago.com.co%2Fes-CO%2Foar%2Fhotel-royal-tulip-brasilia-alvorada%3Fsearch%3D100-129721&psig=AOvVaw1lPEocfCPoo0DJGg5C8_4S&ust=1668233002081000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPjgt666pfsCFQAAAAAdAAAAABAT", "https://royal-tulip-alvorada.hotels-in-brasilia.com/data/Photos/Big3/12775/1277532/1277532952.JPEG"],
         "capacity": 138,
         "cityId": "city3",
         "userId": "admin3"
@@ -26,7 +28,8 @@
     {
         "id": "ht4",
         "name": "Meliá Caracas",
-        "photo": ["https://imageshack.com/i/pm9LDcgLj", "https://imageshack.com/i/pnv1Bb2nj", "https://imageshack.com/i/poKQekOpj"],
+        "photo": ["https://q-xx.bstatic.com/xdata/images/hotel/max500/158648168.jpg?k=bcc61fe8c82bb4024d205de84b1778345daa593f0681918780e8979ab5e6098b&o=", "https://dam.melia.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoibWVsaWFcL2FjY291bnRzXC9mOFwvNDAwMDAxOFwvcHJvamVjdHNcLzEyN1wvYXNzZXRzXC9kOFwvMjUzNTdcL2EyZDIxNDZkZjRiMWEyNzhmMWQ2OWE2NzIzZmE4MDMyLTE2MDA1OTgzNTYuanBnIn0:melia:iiGAJviHFi4xZ5IbS4P2Ot4qjzM4fy9eonNmbAMwYbo?fp=&width=2000&height=1337&v1=true", 
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Al2pTiKESDgy1nBarzOesc2iqyJGQhnvLg&usqp=CAU"],
         "capacity": 75,
         "cityId": "city4",
         "userId": "admin4"
@@ -34,7 +37,7 @@
     {
         "id": "ht5",
         "name": "Resorts World Las Vegas",
-        "photo": ["https://imageshack.com/i/pm4c2LJAj", "https://www.asgam.com/wp-content/uploads/2021/08/rwlv-casino-credit-megan-blair-750x482.jpg", "https://imageshack.com/i/pm4c2LJAj"],
+        "photo": ["https://www.reviewjournal.com/wp-content/uploads/2022/10/17015250_web1_RESORTS-WORLD-GLOW-JAN21-22-013.jpg?crop=1", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.rwlasvegas.hotels.com%2F&psig=AOvVaw1HqxjEZ_nMbKjCV5MZalSk&ust=1668233122319000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJDAu-e6pfsCFQAAAAAdAAAAABAO", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pokernews.com%2Fnews%2F2018%2F07%2Finside-gaming-resorts-world-las-vegas-moving-forward-2020-31633.htm&psig=AOvVaw1HqxjEZ_nMbKjCV5MZalSk&ust=1668233122319000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCJDAu-e6pfsCFQAAAAAdAAAAABAT"],
         "capacity": 215,
         "cityId": "city5",
         "userId": "admin1"
@@ -42,7 +45,9 @@
     {
         "id": "ht6",
         "name": "Sheraton Lima Historic Center",
-        "photo": ["https://imageshack.com/i/pmEfKKroj", "https://imageshack.com/i/pnLDzUsLj", "https://pix8.agoda.net/hotelImages/7966/0/140a7f1932b366e3c345f698c3b7ad31.jpg?ca=8&ce=1&s=1024x768"],
+        "photo": ["https://cf.bstatic.com/xdata/images/hotel/max500/305975236.jpg?k=d2314b47b8754f75966198fac2c604ca3f6f60ad8213d4c6c25b81b5c63d6324&o=&hp=1",
+        "https://images.trvl-media.com/hotels/1000000/30000/25700/25668/f497f599.jpg?impolicy=resizecrop&rw=670&ra=fit", 
+        "https://media.staticontent.com/media/pictures/d1d97ef8-12ff-459a-8efb-563c73757686 "],
         "capacity": 132,
         "cityId": "city6",
         "userId": "admin2"
@@ -50,7 +55,7 @@
     {
         "id": "ht7",
         "name": "After Hotel Montevideo",
-        "photo": ["https://imageshack.com/i/poeXMH0Yj", "https://cf.bstatic.com/xdata/images/hotel/max1024x768/230283689.jpg?k=8e1826d540c68ebb23bb956580ecbbba9d74bf96bf30a928f98bf88675921e95&o=&hp=1", "https://imageshack.com/i/pmg3nKraj"],
+        "photo": ["https://images.trvl-media.com/hotels/5000000/4580000/4577900/4577884/98aa8986.jpg?impolicy=resizecrop&rw=670&ra=fit", "https://media.staticontent.com/media/pictures/1fe247f2-cabf-4d05-8e17-0b0634b9a7ea/412x210", "https://imagizer.imageshack.com/v2/550x367q90/922/g3nKra.jpg"],
         "capacity": 93,
         "cityId": "city7",
         "userId": "admin3"
@@ -58,7 +63,7 @@
     {
         "id": "ht8",
         "name": "El InterContinental Paris le Grand",
-        "photo": ["https://imageshack.com/i/pmiSgvMij", "https://imageshack.com/i/pnb2b3Gzj", "https://imageshack.com/i/povjhzaVj"],
+        "photo": ["https://digital.ihg.com/is/image/ihg/intercontinental-paris-7053109045-2x1?fit=fit,1&wid=2400&hei=1200&qlt=85,0&resMode=sharp2&op_usm=1.75,0.9,2,0", "https://pix10.agoda.net/hotelImages/44638/0/3c441a3369efd5b42f0bb300da4389c5.jpg?ca=7&ce=1&s=1024x768", "https://images.meetingsbooker.com/images/venues/intercontinental-paris-le-grand-hotel-6.jpg"],
         "capacity": 248,
         "cityId": "city8",
         "userId": "admin4"
@@ -66,7 +71,7 @@
     {
         "id": "ht9",
         "name": "Masaya Quito",
-        "photo": ["https://imageshack.com/i/pnJuJWbzj", "https://imageshack.com/i/pnodict6j", "https://imageshack.com/i/po5Khdw7j"],
+        "photo": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/21/07/d8/masaya-hostel-quito.jpg?w=700&h=-1&s=1", "https://media-cdn.tripadvisor.com/media/photo-s/13/2c/91/50/jardin-masaya-quito.jpg", "https://media-cdn.tripadvisor.com/media/photo-s/15/02/e0/37/masaya-hostel-quito.jpg "],
         "capacity": 136,
         "cityId": "city9",
         "userId": "admin1"
@@ -74,7 +79,7 @@
     {
         "id": "ht10",
         "name": "Hotel Arena Blanca",
-        "photo": ["https://imageshack.com/i/pmuy382xj", "https://imageshack.com/i/pmhEiQ1Dj", "https://media.staticontent.com/media/pictures/3af02a0e-3b45-465d-b4a6-7fbe3e9af6c5"],
+        "photo": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/d4/ee/83/hotel-arena-blanca.jpg?w=700&h=-1&s=1", "https://s3.amazonaws.com/images.vive.travel/photos/4910/xlarge/desayuno-mar-hotel-arena-blanca.jpg?1410017680", "https://media.staticontent.com/media/pictures/3af02a0e-3b45-465d-b4a6-7fbe3e9af6c5"],
         "capacity": 128,
         "cityId": "city10",
         "userId": "admin2"
@@ -82,7 +87,7 @@
     {
         "id": "ht11",
         "name": "Hotel Mercure Santiago Centro",
-        "photo": ["https://imageshack.com/i/pn87ut0hj", "https://imageshack.com/i/pm74HDSVj", "https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/39/08/390891_v11.jpeg"],
+        "photo": ["https://images.trvl-media.com/hotels/2000000/1550000/1541200/1541172/bf641b6a.jpg?impolicy=resizecrop&rw=670&ra=fit ", "https://cdn.atrapalo.com/hoteles/picture/l/701/8/6/12249956.jpg", "https://q-xx.bstatic.com/xdata/images/hotel/max500/246188523.jpg?k=30e7c81654a6e2202cffdc08ebb22e4481d854b34fbc6f9f1d9e3c148c30b105&o="],
         "capacity": 79,
         "cityId": "city11",
         "userId": "admin3"
@@ -90,7 +95,7 @@
     {
         "id": "ht12",
         "name": "Hotel Recoleta Sur",
-        "photo": ["https://imageshack.com/i/poBDYgu9j", "https://imageshack.com/i/pnmWtZC2j", "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/b5/ed/07/ker-recoleta-hotel-spa.jpg?w=700&h=-1&s=1"],
+        "photo": ["https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/32/74/a6/hostal-recoleta-sur.jpg?w=700&h=-1&s=1", "https://q-xx.bstatic.com/xdata/images/hotel/max500/19462500.jpg?k=23b12fc89945afda6cb7effb47dde0f07068335fdc62d3af5ec3231a7f0068f8&o=", "https://loqueva.com/wp-content/uploads/2018/12/Casa-Sur-Hotel-Recoleta-3-1024x680.jpg"],
         "capacity": 68,
         "cityId": "city12",
         "userId": "admin4"
