@@ -1052,7 +1052,7 @@
 }
 
 .call-card{
-  font-weight: 600;
+  font-weight: 400;
   color: rgb(204, 204, 204);
   background-color: #00374a;
   border-radius: 0.5rem;
@@ -1085,5 +1085,111 @@
   color: #00374a;
 }
 
+.container-card{
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.251);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 80rem;
+  height: 45rem;
+}
+
+.container-img{ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 80%;
+}
+
+.container-img img{
+  width: 90%;
+  height: 80%;
+  object-fit: contain;
+}
 
 
+
+.cont-events{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.cont-events .event{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.card-event{
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.251);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 50rem;
+  height: 40rem;
+}
+
+.card-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+.card-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.cont-card-detail{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.166);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 70rem;
+  height: 50rem;
+}
+
+.container-img-detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 80%;
+}
+
+.container-img-detail img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

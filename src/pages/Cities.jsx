@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Checkbox from '../components/Checkbox'
 import CityCard from '../components/Cities/CityCard'
+import NotFound from './NotFound'
 
 export default function Cities() {
 
@@ -65,9 +66,13 @@ export default function Cities() {
                 </div>
             </div>
             <div className='Cities-card-container'>
-                {filteredCities.map((city) => {
-                    return <CityCard city={city} />
-                })}
+                {filteredCities.length > 0 ? (filteredCities.map((city) => {
+                    return <CityCard city={city} id={city.id}  />
+                }))
+                : (
+                    <NotFound />
+                    )
+                }
             </div>
         </div>
     )

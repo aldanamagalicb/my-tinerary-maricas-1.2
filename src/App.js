@@ -7,9 +7,10 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Cities from './pages/Cities';
 import Hotels from './pages/Hotels';
-import DetailCity from './pages/DetailCity';
 import NewCity from './pages/NewCity';
 import NewHotel from './pages/NewHotel';
+import CitiesDetails from './pages/CitiesDetails';
+
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/hotels" element={<Hotels />} />
-        <Route path="/detailcity" element={<DetailCity />} />
+        <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/newcity" element={<NewCity />} />
         <Route path="/newhotel" element={<NewHotel />} />
       </Routes>
