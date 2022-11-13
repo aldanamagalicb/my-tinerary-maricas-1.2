@@ -2,6 +2,9 @@ import React, { useRef, useState, useEffect } from 'react'
 import Checkbox from '../components/Checkbox'
 import CityCard from '../components/Cities/CityCard'
 import NotFound from './NotFound'
+import axios from 'axios'
+import { DB_LINK } from '../url'
+
 
 export default function Cities() {
 
@@ -14,14 +17,14 @@ export default function Cities() {
     const continentes = [ America, Europa]
 
     useEffect(() => {
-        fetch('../cities.json')
-            .then(response => response.json())
-            .then(response => setCiudades(response))
+        axios.get(`${DB_LINK}api/cities`)
+        .then(response => setCiudades(response.data.response))
 
-            fetch('../cities.json')
-            .then(response => response.json())
-            .then(response => setCiudadesFiltradas(response))
+        axios.get(`${DB_LINK}api/cities`)
+        .then(response => setCiudadesFiltradas(response.data.response))
     }, [])
+
+    console.log(ciudades)
 
     let checkCities = [...new Set(ciudades.map((ciudad) => ciudad.continent))]
 
