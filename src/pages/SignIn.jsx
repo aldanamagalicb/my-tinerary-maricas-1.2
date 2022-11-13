@@ -33,11 +33,11 @@ export default function SignIn() {
                 <InputSigniN className="input-button" type="submit" value="Login" fx={sendForm}/>
             </form>
             <nav id="socialLogin">
-                <a href="#" class="google"></a>
+                <button href="#" class="google"></button>
             </nav>
             <p>You dont have an account?
                 <NavLink to='/signup'>
-                    <a href='#'> Create account</a>
+                    <button href='#'> Create account</button>
                 </NavLink>
             </p>
         </div>

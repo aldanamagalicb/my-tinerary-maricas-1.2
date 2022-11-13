@@ -36,11 +36,11 @@ export default function SignUp() {
                 <InputSignUp className="input-button" type="submit" value="Create account" fx={enviarFormulario}/>
             </form>
             <nav id="socialLogin">
-                <a href="#" class="google"></a>
+                <button href="#" class="google"></button>
             </nav>
             <p>Do you have an account?
                 <NavLink to='/signin'>
-                    <a href='#'> Come to sing in</a>
+                    <button href='#'> Come to sing in</button>
                 </NavLink>
             </p>
         </div>
