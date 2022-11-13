@@ -1,0 +1,101 @@
+.card-form{
+    border-radius: 30px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30em;
+    height: 33em;
+    background-color: #17778d5f;
+    box-shadow: 0 2px 5px 0 #454545;
+    backdrop-filter: blur(5px);
+}
+
+.card-form .form{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.cont-h2{
+    padding: 1px 0;
+}
+
+.cont-h2 h2{
+    font-size: 2.5em;
+    color: #fff;
+    text-align: center;
+}
+
+.form .input-text{
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: 0.2s all ease;
+    box-shadow: 0 2px 5px 0 #454545;
+    width: 60%;
+}
+
+.form .input-button{
+    border: none;
+background-color: #17788d;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: 0.2s all ease;
+    box-shadow: 0 2px 5px 0 #454545;
+}
+
+.form .input-button2{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 19em;
+    height: 2.5em;
+    color: #fff;
+    background-image: url("https://i.imgur.com/0Z4Z1Zm.png");
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#socialLogin {
+    display: flex;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+#socialLogin a {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    box-shadow: 0 2px 5px 0 #454545;
+}
+
+#socialLogin .google { background-image: url('../../../public/img/google-svgrepo-com.svg'); }
+
+@media screen and (max-width: 768px) {
+    .card-form{
+        width: 100%;
+        border-radius: 0;
+    }
+    .card-form p{
+        font-size: 16px;
+    }
+}
+    

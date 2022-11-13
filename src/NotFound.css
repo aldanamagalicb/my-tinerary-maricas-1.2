@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100vh;
+    height: 100vh;
+}
+
+
+.bg-img{
+    background-image: url(../public/img/dontFound.jpg);
+    background-size: contain; 
+    background-repeat: no-repeat;
+}

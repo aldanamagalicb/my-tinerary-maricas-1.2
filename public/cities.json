@@ -1,0 +1,98 @@
+[
+    {
+        "id": "city1",
+        "name": "Buenos Aires",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1007x671q90/924/d0AIYM.jpg",
+        "population": 15625084,
+        "userId": "adm1"
+    },
+    {
+        "id": "city2",
+        "name": "Asuncion",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1193x671q90/924/K4Qomg.jpg",
+        "population": 520917,
+        "userId": "adm1"
+    },
+    {
+        "id": "city3",
+        "name": "Brasilia",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1375x658q90/924/RnslUp.jpg",
+        "population": 3015268,
+        "userId": "adm1"
+    },
+    {
+        "id": "city4",
+        "name": "Caracas",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/748x498q90/923/BpyK73.jpg",
+        "population": 3500000,
+        "userId": "admin1"
+    },
+    {
+        "id": "city5",
+        "name": "Las Vegas",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1007x671q90/923/kLT0DW.jpg",
+        "population": 646790,
+        "userId": "adm1"
+    },
+    {
+        "id": "city6",
+        "name": "Lima",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/800x600q90/923/YigIYM.jpg",
+        "population": 10000000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city7",
+        "name": "Montevideo",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/600x400q90/924/WfYvNs.jpg",
+        "population": 1381000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city8",
+        "name": "Paris",
+        "continent": "Europa",
+        "photo": "https://imagizer.imageshack.com/v2/1074x671q90/922/stf9fn.jpg",
+        "population": 2161000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city9",
+        "name": "Quito",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1375x481q90/924/bc9xnB.jpg",
+        "population": 2011000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city10",
+        "name": "San Andres",
+        "continent": "America",
+        "photo": "https://thearchipielagopress.co/wp-content/uploads/2022/03/SAN-ANDRES.jpg",
+        "population": 48299,
+        "userId": "adm1"
+    },
+    {
+        "id": "city11",
+        "name": "Santiago",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1375x627q90/923/wqvz31.jpg",
+        "population": 5614000,
+        "userId": "adm1"
+    },
+    {
+        "id": "city12",
+        "name": "Sucre",
+        "continent": "America",
+        "photo": "https://imagizer.imageshack.com/v2/1024x683q90/922/uPlIDG.jpg",
+        "population": 287000,
+        "userId": "adm1"
+    }
+]
