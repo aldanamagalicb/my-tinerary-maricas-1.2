@@ -1,36 +1,32 @@
+import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Itinerary from "../components/Itinerary";
 import Details from "./Details";
+import { DB_LINK } from "../url";
 
 export default function CitiesDetails() {
   let [cities, setCities] = useState([]);
-  let { id } = useParams();
-
-
+  let {id} = useParams();
 
   useEffect(() => {
-    fetch("/cities.json")
-      .then((res) => res.json())
-      .then((res) => setCities(res.find((e) => e.id === id)));
-
-
-    // eslint-disable-next-line
+    axios.get(`${DB_LINK}api/cities/${id}`)
+      .then((res) => setCities(res.data.response));
   }, []);
 
+  console.log(cities);
 
-  console.log(id);
   return (
     <>
       <Details
         img={cities.photo}
         name={cities.name}
-        zone={cities.zone}
+        zone={cities.continent}
         population={cities.population}
       />
       <div className="p-2 flex column justify-center align-center">
-        <Itinerary className="p-2" id={cities.id}></Itinerary>
+        <Itinerary className="p-2" id={cities._id}></Itinerary>
         <button>View Comments</button>
       </div>
     </>

@@ -24,7 +24,6 @@ export default function Cities() {
         .then(response => setCiudadesFiltradas(response.data.response))
     }, [])
 
-    console.log(ciudades)
 
     let checkCities = [...new Set(ciudades.map((ciudad) => ciudad.continent))]
 
@@ -70,7 +69,7 @@ export default function Cities() {
             </div>
             <div className='Cities-card-container'>
                 {filteredCities.length > 0 ? (filteredCities.map((city) => {
-                    return <CityCard city={city} id={city.id}  />
+                    return <CityCard city={city} id={city._id}  />
                 }))
                 : (
                     <NotFound />
