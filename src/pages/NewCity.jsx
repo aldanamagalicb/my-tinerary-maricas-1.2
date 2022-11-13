@@ -3,11 +3,11 @@ import { useRef } from 'react'
 import '../components/form/form.css'
 import InputSignUp from '../components/form/InputSignUp'
 import axios from 'axios'
+import {DB_LINK} from '../url'
 
+console.log(DB_LINK)
 
 export default function NewCity() {
-
-    
 
     const form = useRef()
     const name = useRef()
@@ -15,9 +15,8 @@ export default function NewCity() {
     const photo = useRef()
     const population = useRef()
 
-
     const validation = () => {
-                    axios.post('http://localhost:8000/api/cities/', {
+                    axios.post(`${DB_LINK}api/cities/`, {
                     name: name.current.value,
                     continent: continent.current.value,
                     photo: photo.current.value,
