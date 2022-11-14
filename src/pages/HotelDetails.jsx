@@ -13,7 +13,6 @@ export default function HotelDetails() {
       .then((res) => res.json())
       .then((res) => setHotels(res.find((e) => e.id === id)));
 
-    // eslint-disable-next-line
   }, []);
 
   return (
