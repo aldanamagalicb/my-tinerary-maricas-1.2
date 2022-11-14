@@ -12,7 +12,7 @@ export default function Itinerary() {
 
   useEffect(() => {
     axios.get(`${DB_LINK}api/itineraries?cityId=${id}`)
-      .then((res) => setActivities(res.data.data));
+      .then((res) => setActivities(res.data.response));
 
   }, []);
 
