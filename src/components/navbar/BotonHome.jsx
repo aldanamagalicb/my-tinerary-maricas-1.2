@@ -14,8 +14,10 @@ export default function BotonUsers() {
             <BotonDown text={<IconHome />} className='w-100' onClick={display}/>
             {show && (
             <div className='flex column'>
-                <BotonDown text="Cities" rute='/cities'  />
+                <BotonDown text="Cities" rute='/cities'/>
                 <BotonDown text="Hotels" rute='/hotels'/>
+                <BotonDown text="New City" rute='/newcity'/>
+                <BotonDown text="New Hotel" rute='/newhotel'/>
             </div>
             )}
         </div>
