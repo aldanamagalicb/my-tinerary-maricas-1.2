@@ -1,20 +1,21 @@
+import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Events from "../components/Events";
 import DetailsHotel from "./DetailsHotel";
+import { DB_LINK } from "../url";
 
 export default function HotelDetails() {
   let [hotels, setHotels] = useState([]);
   let { id } = useParams();
 
   useEffect(() => {
-    fetch("/hotels.json")
-      .then((res) => res.json())
-      .then((res) => setHotels(res.find((e) => e.id === id)));
-
-    // eslint-disable-next-line
+    axios.get(`${DB_LINK}api/hotels/${id}`)
+      .then((res) => setHotels(res.data.response));
   }, []);
+
+  console.log(hotels);
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function HotelDetails() {
         capacity={hotels.capacity}
       />
       <div className="cont-events">
-        <Events className="p-2" id={hotels.id} />
+        <Events className="p-2" id={hotels._id} />
         <button>View Comments</button>
       </div>
     </>

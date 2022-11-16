@@ -1,6 +1,8 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Btn from './Btn'
 import './carousel.css'
+import {DB_LINK} from '../../url'
 
 
 export default function Carousel() {
@@ -29,17 +31,14 @@ export default function Carousel() {
     }, [number]);
 
     useEffect(() => {
-        fetch("./cities.json")
-            .then(res => res.json())
-            .then(res => setCities(res))
+        axios.get(`${DB_LINK}api/cities/`)
+            .then(res => setCities(res.data.response))
 
-        fetch("./hotels.json")
-            .then(res => res.json())
-            .then(res => setHotels(res))
+        axios.get(`${DB_LINK}api/hotels/`)
+            .then(res => setHotels(res.data.response))
 
-        fetch("./touristact.json")
-            .then(res => res.json())
-            .then(res => setActivities(res))
+        axios.get(`${DB_LINK}api/itineraries/`)
+            .then(res => setActivities(res.data.response))
     },
         [])
 

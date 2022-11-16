@@ -1,6 +1,7 @@
 import './cities.css'
 import {Link as LinkRouter} from 'react-router-dom'
 
+
 export default function CityCard(props) {
     const {city, id} = props
     return (

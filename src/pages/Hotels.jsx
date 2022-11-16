@@ -1,22 +1,23 @@
 import React, { useRef, useState, useEffect } from "react";
 import HotelCard from "../components/Hotels/HotelsCards";
 import NotFound from "./NotFound";
+import axios from 'axios'
+import { DB_LINK } from '../url'
 
 export default function Hotels() {
+
   let [hotels, setHotels] = useState([]);
   let [filtrarHoteles, setHotelsFiltered] = useState([]);
   const searchId = useRef();
   const selectId = useRef();
 
-  useEffect(() => {
-    fetch("../hotels.json")
-      .then((response) => response.json())
-      .then((response) => setHotels(response));
+    useEffect(() => {
+        axios.get(`${DB_LINK}api/hotels`)
+        .then(response => setHotels(response.data.response))
 
-    fetch("../hotels.json")
-      .then((response) => response.json())
-      .then((response) => setHotelsFiltered(response));
-  }, []);
+        axios.get(`${DB_LINK}api/hotels`)
+        .then(response => setHotelsFiltered(response.data.response))
+    }, [])
 
   function filterCheckCards() {
     let orderFiltered = sortHotels();
@@ -91,7 +92,7 @@ export default function Hotels() {
       <div className='Cities-card-container'>
         {filtrarHoteles.length > 0 ? (
           filtrarHoteles.map((hotel) => {
-            return <HotelCard hotel={hotel} key={hotel.id} id={hotel.id} />;
+            return <HotelCard hotel={hotel} key={hotel._id} id={hotel._id} />;
           })
         ) : (
           <NotFound />

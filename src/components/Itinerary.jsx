@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import CardItinerary from "./CardItinerary";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { DB_LINK } from "../url";
 
 export default function Itinerary() {
   let { id } = useParams();
@@ -9,12 +11,11 @@ export default function Itinerary() {
   let [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    fetch("/touristact.json")
-      .then((res) => res.json())
-      .then((res) => setActivities(res.filter((e) => e.citiId === id)));
+    axios.get(`${DB_LINK}api/itineraries?cityId=${id}`)
+      .then((res) => setActivities(res.data.response));
 
   }, []);
-  console.log(activities);
+
 
   useEffect(() => {
     let interval = setInterval(() => {
