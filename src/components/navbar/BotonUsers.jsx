@@ -6,12 +6,11 @@ import IconUser from './IconUser';
 export default function BotonUsers() {
     const [show, setShow] = useState(false);
     const display = () => {
-        setShow(!show);
-        console.log(show)
+        setShow(!show)
     }
     return (
         <div className='flex column'>
-            <BotonDown text={<IconUser />} className='w-100' onClick={display}/>
+            <IconUser onClick={display} />
             {show && (
             <div className='flex column'>
                 <BotonDown text="Sign In" rute='/signin' />

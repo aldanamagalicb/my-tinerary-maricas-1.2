@@ -12,8 +12,6 @@ import NewHotel from './pages/NewHotel';
 import CitiesDetails from './pages/CitiesDetails';
 import HotelDetails from './pages/HotelDetails';
 
-
-
 function App() {
   return (
     <Layout>
