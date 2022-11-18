@@ -8,68 +8,58 @@ import { DB_LINK } from '../url'
 
 export default function Cities() {
 
-    let [ciudades, setCiudades] = useState([])
-    let [filteredCities, setCiudadesFiltradas] = useState([])
-    const America = useRef()
-    const Europa = useRef()
+    let [cities, setCities] = useState([])
+    let [filCity, setFilCity] = useState([])
+    let [checkboxes, setCheckboxes] = useState([])
     const searchId = useRef()
 
-    const continentes = [ America, Europa]
 
     useEffect(() => {
         axios.get(`${DB_LINK}api/cities`)
-        .then(response => setCiudades(response.data.response))
+        .then(response => setCities(response.data.response))
 
         axios.get(`${DB_LINK}api/cities`)
-        .then(response => setCiudadesFiltradas(response.data.response))
+        .then(response => setFilCity(response.data.response))
     }, [])
 
 
-    let checkCities = [...new Set(ciudades.map((ciudad) => ciudad.continent))]
+    let checkCities = [...new Set(cities.map((ciudad) => ciudad.continent))]
 
-    function filterCheckCards(){
 
-        let checkFiltered = filterCheck()
-        let searchFiltered = filterSearch(checkFiltered)
-        setCiudadesFiltradas(searchFiltered)
-        localStorage.setItem('filteredCities', JSON.stringify(searchFiltered))
-    }
-
-    function filterCheck(){
+    function filterCheck(check){
         let checks = []
-        continentes.filter((continente) => continente.current?.checked).map((continente) => checks.push(continente.current.value))
-        let filteredCities = ciudades.filter((ciudad) => checks.includes(ciudad.continent))
+        if(check.target.checked){
+            checks = [...checkboxes, check.target.value]
+    }else{
+        checks = checkboxes.filter((checkbox) => checkbox !== check.target.value)
+    }
+    setCheckboxes(checks)
+    return checks
+}
 
-        if(checks.length === 0){
-            return ciudades
-        }
-        return filteredCities
+    function filterCities(cityFil){
+        let check = filterCheck(cityFil)
+        let url = check.map( (continent) => `continent=${continent}`).join('&');
+        axios.get(`${DB_LINK}api/cities?${url}&name=${searchId.current.value}`)
+        .then(response => setFilCity(response.data.response))
     }
 
-    function filterSearch(array){
-        if(searchId.current.value !== ''){
-            let filteredCities = array.filter((ciudad) => ciudad.name.toLowerCase().includes(searchId.current.value.toLowerCase()))
-            return filteredCities
-        }else{
-            return array
-        }
-    }
 
     return (
         <div className='cont-cities'>
             <div className='wrap flex center w-100 m-1'>
                 <div className='flex justify-around mx-1 gap-2'>
-                    {checkCities.map((continente, index) => {
-                        return <Checkbox continent={continente} value={continente} refId={continentes[index]} fx={filterCheckCards}/>
+                    {checkCities.map((continent) => {
+                        return <Checkbox continent={continent} value={continent} fx={filterCities}/>
                     })}
                 </div>
                 <div className='input-text'>
-                    <input type="text" placeholder="Search" ref={searchId} onChange={filterCheckCards} />
+                    <input type="text" placeholder="Search" ref={searchId} onChange={filterCities} />
                 </div>
             </div>
             <div className='Cities-card-container'>
-                {filteredCities.length > 0 ? (filteredCities.map((city) => {
-                    return <CityCard city={city} id={city._id}  />
+                {filCity.length > 0 ? (filCity.map((city) => {
+                    return <CityCard city={city} id={city._id} />
                 }))
                 : (
                     <NotFound />
