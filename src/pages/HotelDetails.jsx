@@ -13,6 +13,7 @@ export default function HotelDetails() {
   useEffect(() => {
     axios.get(`${DB_LINK}api/hotels/${id}`)
       .then((res) => setHotels(res.data.response));
+      // eslint-disable-next-line
   }, []);
 
   console.log(hotels);

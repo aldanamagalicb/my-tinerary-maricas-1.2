@@ -13,6 +13,7 @@ export default function CitiesDetails() {
   useEffect(() => {
     axios.get(`${DB_LINK}api/cities/${id}`)
       .then((res) => setCities(res.data.response));
+      // eslint-disable-next-line
   }, []);
 
 

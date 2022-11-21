@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Btn from './Btn'
 import './carousel.css'
-import {DB_LINK} from '../../url'
+import { DB_LINK } from '../../url'
 
 
 export default function Carousel() {
@@ -16,7 +16,7 @@ export default function Carousel() {
     let [details, setDetails] = useState([])
     let [id, setId] = useState(0);
 
-    
+
     useEffect(() => {
         let idInterval = setInterval(
             () => {
@@ -28,6 +28,7 @@ export default function Carousel() {
         );
         setId(idInterval);
         return clearInterval(id);
+        // eslint-disable-next-line
     }, [number]);
 
     useEffect(() => {
@@ -40,6 +41,7 @@ export default function Carousel() {
         axios.get(`${DB_LINK}api/itineraries/`)
             .then(res => setActivities(res.data.response))
     },
+        // eslint-disable-next-line
         [])
 
     let prev = () => {
@@ -78,7 +80,7 @@ export default function Carousel() {
 
     })
 
-        setDetailCities = cities.map(() => {
+    setDetailCities = cities.map(() => {
         let citiesAleatory = aleatory(cities.length - 1)
         if (detailsCities.length < 4 && !detailsCities.includes(cities.photo)) {
             detailsCities.push(cities[citiesAleatory].photo)
@@ -91,7 +93,6 @@ export default function Carousel() {
     }
 
     return (
-
         <div className='flex justify-center column '>
             <div>
                 <div className='flex justify-center'>
@@ -101,7 +102,7 @@ export default function Carousel() {
                 </div>
                 <div className='flex justify-center align-center gap-1 w-100 vh-90'>
                     <Btn verb="<" onClick={prev} />
-                    <div className='cont-carousel'  >
+                    <div className='cont-carousel'>
                         {
                             details[number].map((photo) => {
                                 return (
@@ -112,7 +113,6 @@ export default function Carousel() {
                     </div>
                     <Btn verb=">" onClick={next} />
                 </div>
-
             </div>
         </div>
 
