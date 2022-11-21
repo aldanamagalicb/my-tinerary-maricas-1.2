@@ -2,34 +2,46 @@ import React, { useRef, useState, useEffect } from 'react'
 import Checkbox from '../components/Checkbox'
 import CityCard from '../components/Cities/CityCard'
 import NotFound from './NotFound'
-import axios from 'axios'
-import { DB_LINK } from '../url'
-
+import { useSelector, useDispatch } from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions'
 
 export default function Cities() {
 
-    let [cities, setCities] = useState([])
-    let [filCity, setFilCity] = useState([])
+    const {allCities, continentCities, searchInput, checkBoxes, checkedCities } = useSelector(store => store.citiesReducer)
+    const dispatch = useDispatch()
+    const {getCities, getContinentCities} = citiesActions
+
     let [checkboxes, setCheckboxes] = useState([])
     const searchId = useRef()
+    const input = useRef()
 
 
     useEffect(() => {
-        axios.get(`${DB_LINK}api/cities`)
-        .then(response => setCities(response.data.response))
-
-        axios.get(`${DB_LINK}api/cities`)
-        .then(response => setFilCity(response.data.response))
-    }, [])
-
-
-    let checkCities = [...new Set(cities.map((ciudad) => ciudad.continent))]
+        if (searchInput || checkBoxes){
+        let aux = {
+            search: searchInput,
+            continents: checkBoxes,
+            continentChecked: checkedCities
+        }
+        dispatch(getContinentCities(aux))
+        searchId.current.value = searchInput
+        if (checkedCities){
+            checkedCities.forEach(check => {
+                let checked = Array.from(input.current).find(input => input.value === check)
+                checked.checked = true
+        })
+    }
+    } else {
+        dispatch(getCities())
+    }
+    // eslint-disable-next-line
+    },[])
 
 
     function filterCheck(check){
         let checks = []
         if(check.target.checked){
-            checks = [...checkboxes, check.target.value]
+            checks = [...checkedCities, check.target.value]
     }else{
         checks = checkboxes.filter((checkbox) => checkbox !== check.target.value)
     }
@@ -40,25 +52,29 @@ export default function Cities() {
     function filterCities(cityFil){
         let check = filterCheck(cityFil)
         let url = check.map( (continent) => `continent=${continent}`).join('&');
-        axios.get(`${DB_LINK}api/cities?${url}&name=${searchId.current.value}`)
-        .then(response => setFilCity(response.data.response))
+        let data = {
+            continents: url,
+            search: searchId.current.value,
+            continentChecked: check
+        }
+        dispatch(getContinentCities(data))
     }
 
 
     return (
         <div className='cont-cities'>
             <div className='wrap flex center w-100 m-1'>
-                <div className='flex justify-around mx-1 gap-2'>
-                    {checkCities.map((continent) => {
+                <form ref={input} className='flex justify-around mx-1 gap-2'>
+                    {continentCities.map((continent) => {
                         return <Checkbox continent={continent} value={continent} fx={filterCities}/>
                     })}
-                </div>
+                </form>
                 <div className='input-text'>
                     <input type="text" placeholder="Search" ref={searchId} onChange={filterCities} />
                 </div>
             </div>
             <div className='Cities-card-container'>
-                {filCity.length > 0 ? (filCity.map((city) => {
+                {allCities.length > 0 ? (allCities.map((city) => {
                     return <CityCard city={city} id={city._id} />
                 }))
                 : (
