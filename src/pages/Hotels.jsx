@@ -1,30 +1,43 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import HotelCard from "../components/Hotels/HotelsCards";
 import NotFound from "./NotFound";
-import axios from 'axios'
-import { DB_LINK } from '../url'
+import { useSelector, useDispatch } from 'react-redux';
+import hotelsAction from '../redux/actions/hotelsActions';
 
 export default function Hotels() {
 
-  let [hotels, setHotels] = useState([]);
+  const dispatch = useDispatch()
+  const { hotels, name, order } = useSelector(state => state.hotelsReducer)
+  const { getHotels, getContinentHotels } = hotelsAction
+
   const searchId = useRef();
   const selectId = useRef();
 
   useEffect(() => {
-    axios.get(`${DB_LINK}api/hotels`)
-      .then(response => setHotels(response.data.response))
+    if (name || order) {
+      let data = {
+          name,
+          order
+      }
+      dispatch(getContinentHotels(data))
+      searchId.current.value = name
+      selectId.current.value = order
+  }
+  dispatch(getHotels())
+
+    // eslint-disable-next-line
   }, [])
 
   let filterHotels = () => {
     if (selectId.current.value !== "asc" && selectId.current.value !== "desc") {
       selectId.current.value = "asc"
-    } else {
-      axios.get(
-          `${DB_LINK}api/hotels?order=${selectId.current.value}&name=${searchId.current.value}`
-        )
-        .then((res) => setHotels(res.data.response));
-    }
-  };
+    } let data = {
+      name: searchId.current.value,
+      order: selectId.current.value
+  }
+
+  dispatch(getContinentHotels(data))
+}
 
   return (
     <div className="cont-cities">
