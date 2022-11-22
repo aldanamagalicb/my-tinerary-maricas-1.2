@@ -87,7 +87,7 @@ const deleteMyHotel = createAsyncThunk("deleteMyHotel",async (id)=>{
 
 const updateMyHotel = createAsyncThunk("updateMyHotel",async (data)=>{
     try{
-        const response = await axios.patch(`${DB_LINK}api/hotels/${data.id}`, data.hotel);
+        const response = await axios.patch(`${DB_LINK}api/hotels/${data.id}`, data.hotels);
     return response.data;
 }
     catch(error){

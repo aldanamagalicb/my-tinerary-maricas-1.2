@@ -91,7 +91,7 @@ export default function MyCardAdmin(props) {
                     }
   
                     dispatch(updateMyHotel(data))
-                    // window.location.reload()
+                     window.location.reload()
                 }
             })
   
