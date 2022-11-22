@@ -44,10 +44,57 @@ const doCity = createAsyncThunk('doCity', async (data) => {
     }
 })
 
+const getMyCities = createAsyncThunk("getMyCities",async (id)=>{
+    try{
+        const response = await axios.get(`${DB_LINK}api/cities?userId=${id}`);
+    return response.data.response;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const deleteMyCity = createAsyncThunk("deleteMyCity",async (id)=>{
+    try{
+        const response = await axios.delete(`${DB_LINK}api/cities/${id}`);
+    return response.data;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const updateMyCity = createAsyncThunk("updateMyCity",async (data)=>{
+    try{
+        const response = await axios.put(`${DB_LINK}api/cities/${data.id}`, data.citie);
+    return response.data;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+
+
 const citiesActions = {
     getCities,
     getContinentCities,
-    doCity
+    doCity,
+    getMyCities,
+    deleteMyCity,
+    updateMyCity
 }
 
 export default citiesActions;

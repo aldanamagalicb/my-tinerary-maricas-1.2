@@ -1,6 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
 import hotelsActions from "../actions/hotelsActions";
-import hotelsAction from "../actions/hotelsActions"
 
 const { getHotels, getContinentHotels, doHotel } = hotelsActions
 
