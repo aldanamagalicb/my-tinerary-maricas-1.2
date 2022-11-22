@@ -1,9 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 import citiesActions from "../actions/citiesActions";
 
-const { getCities, getContinentCities, doCity } = citiesActions;
+const { getCities, getContinentCities, doCity, getMyCities, deleteMyCity, updateMyCity } = citiesActions;
 
 const initialState = {
+    myCities: [],
     allCities: [],
     continentCities: [],
     searchInput: "",
@@ -35,9 +36,22 @@ const citiesReducer = createReducer(initialState,
             .addCase(doCity.fulfilled, (state, action) => {
                 if (action.payload.success) {
                     state.allCities.push(action.payload.response)
-                } else {
-                    
-                }
+                } 
+            })
+
+            .addCase(getMyCities.fulfilled, (state, action) => {
+                return { ...state, myCities: action.payload }
+            })
+
+            .addCase(deleteMyCity.fulfilled, (state, action) => {
+                let mycity = state.myCities.filter(city => city.id !== action.payload.data._id)
+                return { ...state, myCities: mycity }
+            })
+
+            .addCase(updateMyCity.fulfilled, (state, action) => {
+                let mycity = state.myCities.filter(city => city.id !== action.payload.data._id)
+                mycity.push(action.payload.data)
+                return { ...state, myCities: mycity }
             })
     })
 

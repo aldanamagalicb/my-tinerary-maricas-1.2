@@ -69,7 +69,7 @@ export default function Carousel() {
         if (detailsActivities.length < 4 && !detailsActivities.includes(activity.photo)) {
             detailsActivities.push(activity.photo[aleatory(activity.photo.length - 1)])
         }
-
+        return setDetailActivities
     })
 
 
@@ -77,7 +77,7 @@ export default function Carousel() {
         if (detailsHotels.length < 4 && !detailsHotels.includes(hotel.photo)) {
             detailsHotels.push(hotel.photo[aleatory(hotel.photo.length - 1)])
         }
-
+        return setDetailHotels
     })
 
     setDetailCities = cities.map(() => {
@@ -85,20 +85,19 @@ export default function Carousel() {
         if (detailsCities.length < 4 && !detailsCities.includes(cities.photo)) {
             detailsCities.push(cities[citiesAleatory].photo)
         }
-
+        return setDetailCities
     })
 
     if (details.length < 4) {
         setDetails = details.push(detailsActivities, detailsCities, detailsHotels)
+        return setDetails
     }
 
     return (
         <div className='flex justify-center column '>
             <div>
                 <div className='flex justify-center'>
-                    {
-                        <h1 className='tittleCar'>Popular My Tineraries</h1>
-                    }
+                    <h1 className='tittleCar'>Popular My Tineraries</h1>
                 </div>
                 <div className='flex justify-center align-center gap-1 w-100 vh-90'>
                     <Btn verb="<" onClick={prev} />

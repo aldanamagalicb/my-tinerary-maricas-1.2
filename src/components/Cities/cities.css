@@ -38,6 +38,8 @@
 
 .CityCard-details {
     position: absolute;
+    display: flex;
+    gap: 1rem;
     margin-top: 160px;
 }
 .CityCard-details a {
@@ -51,6 +53,21 @@
     
 .CityCard-details a:hover {
     color: #00b4d8;
+    font-size: 14px;
+    transition: 0.5s;
+}
+
+.CityCard-details .a2 {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: 0.3s;
+}
+    
+.CityCard-details .a2:hover {
+    color: #d83200;
     font-size: 14px;
     transition: 0.5s;
 }
