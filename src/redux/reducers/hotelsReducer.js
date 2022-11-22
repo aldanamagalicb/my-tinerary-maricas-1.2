@@ -1,7 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
+import hotelsActions from "../actions/hotelsActions";
 import hotelsAction from "../actions/hotelsActions"
 
-const { getHotels, getContinentHotels } = hotelsAction
+const { getHotels, getContinentHotels, doHotel } = hotelsActions
 
 const initialState = {
     hotels: [],
@@ -25,6 +26,12 @@ const hotelsReducer = createReducer(initialState, (builder) => {
                 name: action.payload.name,
                 order: action.payload.order
             }
+        })
+
+        .addCase(doHotel.fulfilled, (state, action) => {
+            if (action.payload.success) {
+                state.hotels.push(action.payload.response)
+            } 
         })
 
 });
