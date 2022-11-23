@@ -75,7 +75,47 @@ const deleteMyCity = createAsyncThunk("deleteMyCity",async (id)=>{
 const updateMyCity = createAsyncThunk("updateMyCity",async (data)=>{
     try{
         const response = await axios.put(`${DB_LINK}api/cities/${data.id}`, data.citie);
+    return response.data.response;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+const getMyTineraries = createAsyncThunk("getMyTineraries",async (id)=>{
+    try{
+        const response = await axios.get(`${DB_LINK}api/itineraries?userId=${id}`);
+    return response.data.response;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async (id)=>{
+    try{
+        const response = await axios.delete(`${DB_LINK}api/itineraries/${id}`);
     return response.data;
+}
+    catch(error){
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const updateMyTineraries = createAsyncThunk("updateMyTineraries",async (data)=>{
+    try{
+        const response = await axios.put(`${DB_LINK}api/itineraries/${data.id}`, data.tinerarie);
+    return response.data.response;
 }
     catch(error){
         console.log(error)
@@ -94,7 +134,10 @@ const citiesActions = {
     doCity,
     getMyCities,
     deleteMyCity,
-    updateMyCity
+    updateMyCity,
+    getMyTineraries,
+    deleteMyTineraries,
+    updateMyTineraries
 }
 
 export default citiesActions;

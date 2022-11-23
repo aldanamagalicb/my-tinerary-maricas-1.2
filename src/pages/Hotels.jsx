@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import HotelCard from "../components/Hotels/HotelsCards";
-import NotFound from "./NotFound";
 import { useSelector, useDispatch } from 'react-redux';
 import hotelsAction from '../redux/actions/hotelsActions';
 
@@ -16,14 +15,16 @@ export default function Hotels() {
   useEffect(() => {
     if (name || order) {
       let data = {
-          name,
-          order
+          name: name,
+          order: order
       }
       dispatch(getContinentHotels(data))
       searchId.current.value = name
       selectId.current.value = order
+  }else{
+    dispatch(getHotels())
   }
-  dispatch(getHotels())
+  
 
     // eslint-disable-next-line
   }, [])
@@ -57,13 +58,11 @@ export default function Hotels() {
         </label>
       </form>
       <div className='Cities-card-container'>
-        {hotels.length > 0 ? (
+        {hotels.length > 0 && (
           hotels.map((hotel) => {
             return <HotelCard hotel={hotel} key={hotel._id} id={hotel._id} />;
           })
-        ) : (
-          <NotFound />
-        )}
+        ) }
       </div>
     </div>
   );

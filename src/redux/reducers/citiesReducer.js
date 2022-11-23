@@ -1,10 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import citiesActions from "../actions/citiesActions";
 
-const { getCities, getContinentCities, doCity, getMyCities, deleteMyCity, updateMyCity } = citiesActions;
+const { getCities, getContinentCities, doCity, getMyCities, deleteMyCity, updateMyCity, getMyTineraries, deleteMyTineraries, updateMyTineraries } = citiesActions;
 
 const initialState = {
     myCities: [],
+    myTineraries: [],
     allCities: [],
     continentCities: [],
     searchInput: "",
@@ -44,15 +45,27 @@ const citiesReducer = createReducer(initialState,
             })
 
             .addCase(deleteMyCity.fulfilled, (state, action) => {
-                let mycity = state.myCities.filter(city => city.id !== action.payload.data._id)
+                let mycity = state.myCities.filter(city => city._id !== action.payload.data._id)
                 return { ...state, myCities: mycity }
             })
 
             .addCase(updateMyCity.fulfilled, (state, action) => {
-                let mycity = state.myCities.filter(city => city.id !== action.payload.data._id)
-                mycity.push(action.payload.data)
-                return { ...state, myCities: mycity }
+                let mycity = state.myCities.filter(city => city._id !== action.payload._id)
+                return { ...state, myCities: [...mycity, action.payload] }
+            })
+
+            .addCase(getMyTineraries.fulfilled, (state, action) => {
+                return { ...state, myTineraries: action.payload }
+            })
+
+            .addCase(deleteMyTineraries.fulfilled, (state, action) => {
+                let mytinerary = state.myTineraries.filter(tinerary => tinerary._id !== action.payload.data._id)
+                return { ...state, myTineraries: mytinerary }
+            })
+
+            .addCase(updateMyTineraries.fulfilled, (state, action) => {
+                let mytinerary = state.myTineraries.filter(tinerary => tinerary._id !== action.payload._id)
+                return { ...state, myTineraries: [...mytinerary, action.payload] }
             })
     })
-
 export default citiesReducer;

@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import '../components/form/form.css'
 import hotelsActions from '../redux/actions/hotelsActions'
 import { useDispatch, useSelector } from 'react-redux'
-import NotFound from './NotFound'
 import MyCardAdmin from '../components/Hotels/MyCardAdmin'
 
 export default function MyHotels() {
@@ -20,17 +19,17 @@ export default function MyHotels() {
     },[])
     
     return (
-        <div className="cont-cities">      
-        <h2>My Hotels</h2>  
+      <div className="cont-h2">
+        <h2>My Hotels</h2>
+        <div className='cont-cities'>
           <div className='Cities-card-container'>
-            {hotelsAdmin.length > 0 ? (
+            {hotelsAdmin.length > 0 && (
               hotelsAdmin.map((hotel) => {
                 return <MyCardAdmin hotel={hotel} key={hotel._id} id={hotel._id} />;
               })
-            ) : (
-              <NotFound />
-            )}
+            ) }
           </div>
         </div>
+      </div>
       );
 }
