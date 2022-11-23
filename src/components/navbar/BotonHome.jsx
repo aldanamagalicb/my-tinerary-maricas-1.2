@@ -20,6 +20,7 @@ export default function BotonUsers() {
                 <BotonDown text="MyCities" rute='/mycities'/>
                 <BotonDown text="MyHotels" rute='/myhotels'/>
                 <BotonDown text="MyTineraries" rute='/mytineraries'/>
+                <BotonDown text="MyShows" rute='/myshows'/>
             </div>
             )}
         </div>
