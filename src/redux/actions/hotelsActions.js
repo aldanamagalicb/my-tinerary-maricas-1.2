@@ -98,6 +98,49 @@ const updateMyHotel = createAsyncThunk("updateMyHotel",async (data)=>{
     }
     
 });
+const getMyShow = createAsyncThunk("getMyShow",async (id)=>{
+    try{
+        const response = await axios.get(`${DB_LINK}api/shows?userId=${id}`);
+    return response.data.data;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const deleteMyShow = createAsyncThunk("deleteMyShow",async (id)=>{
+    try{
+        const response = await axios.delete(`${DB_LINK}api/shows/${id}`);
+    return response.data;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const updateMyShow = createAsyncThunk("updateMyShow",async (data)=>{
+    try{
+        const response = await axios.patch(`${DB_LINK}api/shows/${data.id}`, data.shows);
+    return response.data.response;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+
 
 const hotelsActions = {
     getHotels,
@@ -105,7 +148,10 @@ const hotelsActions = {
     doHotel,
     getMyHotels,
     deleteMyHotel,
-    updateMyHotel
+    updateMyHotel,
+    getMyShow,
+    deleteMyShow,
+    updateMyShow
 }
 
 export default hotelsActions;
