@@ -29,12 +29,12 @@ export default function MyCardAdmin(props) {
                     window.location.reload()
                 }
             })
-  
+
         } catch (error) {
             console.log(error)
         }
     }
-  
+
     async function updateAdmin() {
         try {
             const { value: formValues } = await Swal.fire({
@@ -46,7 +46,7 @@ export default function MyCardAdmin(props) {
                     '<input placeHolder="Photo 1 Url" id="photo1" class="swal2-input">' +
                     '<input placeHolder="Photo 2 Url" id="photo2" class="swal2-input">' +
                     '<input placeHolder="Photo 3 Url" id="photo3" class="swal2-input">' +
-                    '<input placeHolder="Capacity" id="capacity" class="swal2-input">' ,
+                    '<input placeHolder="Capacity" id="capacity" class="swal2-input">',
                 focusConfirm: false,
                 preConfirm: () => {
                     let name = document.getElementById('name').value
@@ -55,50 +55,48 @@ export default function MyCardAdmin(props) {
                     let photo3 = document.getElementById('photo3').value
                     let photo = []
                     let capacity = document.getElementById('capacity').value
-  
+
                     let data = {
                         id: hotel._id,
                         hotels: {
-  
+
                         }
                     }
-  
-                    if(name !== ''){
+
+                    if (name !== '') {
                         data.hotels.name = name
                     }
-                    if(photo1 !== ''){
+                    if (photo1 !== '') {
                         photo.push(photo1)
-                    }else{
+                    } else {
                         photo.push(hotel.photo[0])
                     }
-                    if(photo2 !== ''){
+                    if (photo2 !== '') {
                         photo.push(photo2)
-                    }else{
+                    } else {
                         photo.push(hotel.photo[1])
                     }
-                    if(photo3 !== ''){
+                    if (photo3 !== '') {
                         photo.push(photo3)
-                    }else{
+                    } else {
                         photo.push(hotel.photo[2])
                     }
-                    if(capacity !== ''){
+                    if (capacity !== '') {
                         data.hotels.capacity = capacity
                     }
-                    if(photo !== []){
+                    if (photo !== []) {
                         data.hotels.photo = photo
-                    }else{
+                    } else {
                         data.hotels.photo = hotel.photo
                     }
-  
                     dispatch(updateMyHotel(data))
-                     window.location.reload()
                 }
             })
-  
+
             if (formValues) {
                 Swal.fire(JSON.stringify(formValues))
             }
-            
+
         } catch (error) {
             console.log(error)
         }
@@ -107,8 +105,8 @@ export default function MyCardAdmin(props) {
     return (
         <div className='CityCard-container' key={hotel.city}>
             <img className="img-card"
-                    src={hotel.photo[0]}
-                        alt={hotel.name} />
+                src={hotel.photo[0]}
+                alt={hotel.name} />
             <div className='CityCard-info'>
                 <p>{hotel.name}</p>
                 <p>Capacity: {hotel.capacity}</p>
@@ -118,5 +116,5 @@ export default function MyCardAdmin(props) {
                 <a className='a2' onClick={deleteAdmin}>Delete</a>
             </div>
         </div>
-)
+    )
 }

@@ -4,7 +4,6 @@ import MyCard from '../components/Cities/MyCard'
 import '../components/form/form.css'
 import citiesActions from '../redux/actions/citiesActions'
 import { useDispatch, useSelector } from 'react-redux'
-import NotFound from './NotFound'
 
 export default function MyCities() {
 
@@ -26,13 +25,9 @@ export default function MyCities() {
             <h2>My Cities</h2>
             <div className='cont-cities'>
                 <div className='Cities-card-container'>
-                    {myCities.length > 0 ? (myCities.map((city) => {
+                    {myCities.length > 0 && (myCities.map((city) => {
                         return <MyCard city={city} id={city._id}  />
-                    }))
-                        : (
-                            <NotFound />
-                        )
-                    }
+                    }))}
                 </div>
             </div>
         </div>

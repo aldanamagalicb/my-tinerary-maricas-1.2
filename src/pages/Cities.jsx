@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Checkbox from '../components/Checkbox'
 import CityCard from '../components/Cities/CityCard'
-import NotFound from './NotFound'
 import { useSelector, useDispatch } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions'
 
@@ -74,13 +73,9 @@ export default function Cities() {
                 </div>
             </div>
             <div className='Cities-card-container'>
-                {allCities.length > 0 ? (allCities.map((city) => {
+                {allCities.length > 0 && (allCities.map((city) => {
                     return <CityCard city={city} id={city._id} />
-                }))
-                : (
-                    <NotFound />
-                    )
-                }
+                }))}
             </div>
         </div>
     )

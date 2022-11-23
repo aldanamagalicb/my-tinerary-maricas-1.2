@@ -9,10 +9,10 @@ import React from 'react'
 export default function MyCard(props) {
 
     const dispatch = useDispatch()
-    const { deleteMyCity, updateMyCity } = citiesActions
-    const { city } = props
+    const { deleteMyTineraries, updateMyTineraries } = citiesActions
+    const { tinerary } = props
 
-    async function deleteCity() {
+    async function deleteTinerary() {
         try {
             Swal.fire({
                 title: 'Are you sure?',
@@ -27,8 +27,7 @@ export default function MyCard(props) {
                         'Your file has been deleted.',
                         'success'
                     )
-                    dispatch(deleteMyCity(city._id))
-                    // window.location.reload()
+                    dispatch(deleteMyTineraries(tinerary._id))
                 }
             })
 
@@ -37,7 +36,7 @@ export default function MyCard(props) {
         }
     }
 
-    async function updateCity() {
+    async function updateTinerary() {
         try {
             const { value: formValues } = await Swal.fire({
                 title: 'Update City',
@@ -45,35 +44,49 @@ export default function MyCard(props) {
                 confirmButtonText: 'Update',
                 html:
                     '<input placeHolder="Name" id="name" class="swal2-input">' +
-                    '<input placeHolder="Continent"id="continent" class="swal2-input">' +
+                    '<input placeHolder="Description"id="Description" class="swal2-input">' +
                     '<input placeHolder="Photo Url"id="photo" class="swal2-input">' +
-                    '<input placeHolder="Population"id="population" class="swal2-input">',
+                    '<input placeHolder="Photo Url 2"id="photo2" class="swal2-input">' +
+                    '<input placeHolder="Photo Url 3"id="photo3" class="swal2-input">' +
+                    '<input placeHolder="Price"id="price" class="swal2-input">' +
+                    '<input placeHolder="Duration"id="duration" class="swal2-input">',
                 focusConfirm: false,
                 preConfirm: () => {
                     let name = document.getElementById('name').value
-                    let continent = document.getElementById('continent').value
+                    let description = document.getElementById('Description').value
                     let photo = document.getElementById('photo').value
-                    let population = document.getElementById('population').value
+                    let photo2 = document.getElementById('photo2').value
+                    let photo3 = document.getElementById('photo3').value
+                    let price = document.getElementById('price').value
+                    let duration = document.getElementById('duration').value
 
                     let data = {
-                        id: city._id,
-                        citie: {
+                        id: tinerary._id,
+                        tinerarie: {
                         }
                     }
                     if (name !== '') {
-                        data.citie.name = name
+                        data.tinerarie.name = name
                     }
-                    if (continent !== '') {
-                        data.citie.continent = continent
+                    if (description !== '') {
+                        data.tinerarie.description = description
                     }
                     if (photo !== '') {
-                        data.citie.photo = photo
+                        data.tinerarie.photo = photo
                     }
-                    if (population !== '') {
-                        data.citie.population = population
+                    if (photo2 !== '') {
+                        data.tinerarie.photo2 = photo2
                     }
-                    dispatch(updateMyCity(data))
-                    // window.location.reload()
+                    if (photo3 !== '') {
+                        data.tinerarie.photo3 = photo3
+                    }
+                    if (price !== '') {
+                        data.tinerarie.price = price
+                    }
+                    if (duration !== '') {
+                        data.tinerarie.duration = duration
+                    }
+                    dispatch(updateMyTineraries(data))
                 }
             })
 
@@ -88,14 +101,14 @@ export default function MyCard(props) {
 
     return (
         <div className='CityCard-container' >
-            <img src={city.photo} alt={city.name} />
+            <img src={tinerary.photo} alt={tinerary.name} />
             <div className='CityCard-info'>
-                <p>{city.name}</p>
-                <p>{city.continent}</p>
+                <p>{tinerary.name}</p>
+                <p>Duration: {tinerary.duration} hrs</p>
             </div>
             <div className='CityCard-details'>
-                <a onClick={updateCity}>Edit</a>
-                <a className='a2' onClick={deleteCity}>Delete</a>
+                <a onClick={updateTinerary}>Edit</a>
+                <a className='a2' onClick={deleteTinerary}>Delete</a>
             </div>
         </div>
     )
