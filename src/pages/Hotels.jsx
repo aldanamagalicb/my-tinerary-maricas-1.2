@@ -1,85 +1,54 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import HotelCard from "../components/Hotels/HotelsCards";
-import NotFound from "./NotFound";
-import axios from 'axios'
-import { DB_LINK } from '../url'
+import { useSelector, useDispatch } from 'react-redux';
+import hotelsAction from '../redux/actions/hotelsActions';
 
 export default function Hotels() {
 
-  let [hotels, setHotels] = useState([]);
-  let [filtrarHoteles, setHotelsFiltered] = useState([]);
+  const dispatch = useDispatch()
+  const { hotels, name, order } = useSelector(state => state.hotelsReducer)
+  const { getHotels, getContinentHotels } = hotelsAction
+
   const searchId = useRef();
   const selectId = useRef();
 
-    useEffect(() => {
-        axios.get(`${DB_LINK}api/hotels`)
-        .then(response => setHotels(response.data.response))
-
-        axios.get(`${DB_LINK}api/hotels`)
-        .then(response => setHotelsFiltered(response.data.response))
-    }, [])
-
-  function filterCheckCards() {
-    let orderFiltered = sortHotels();
-    let searchFiltered = filterSearch(orderFiltered);
-    localStorage.setItem("searchFiltrados", JSON.stringify(searchFiltered));
-    setHotelsFiltered(searchFiltered);
-    console.log(searchFiltered);
-    localStorage.setItem("filtrarHoteles", JSON.stringify(searchFiltered));
-  }
-
-  function sortHotels() {
-    let hotelesOrdenados;
-    let order = selectId.current.value;
-    if (order !== "default") {
-      if (order === "asc") {
-        hotelesOrdenados = hotels
-          .sort((a, b) => a.capacity - b.capacity)
-          .map((hotel) => hotel);
-      } else if (order === "desc") {
-        hotelesOrdenados = hotels
-          .sort((a, b) => b.capacity - a.capacity)
-          .map((hotel) => hotel);
+  useEffect(() => {
+    if (name || order) {
+      let data = {
+          name: name,
+          order: order
       }
-      setHotelsFiltered(hotelesOrdenados);
-      return hotelesOrdenados;
-    } else {
-      return hotels;
-    }
+      dispatch(getContinentHotels(data))
+      searchId.current.value = name
+      selectId.current.value = order
+  }else{
+    dispatch(getHotels())
+  }
+  
+
+    // eslint-disable-next-line
+  }, [])
+
+  let filterHotels = () => {
+    if (selectId.current.value !== "asc" && selectId.current.value !== "desc") {
+      selectId.current.value = "asc"
+    } let data = {
+      name: searchId.current.value,
+      order: selectId.current.value
   }
 
-  function filterSearch(array) {
-    if (searchId.current.value !== "") {
-      let hotelesFiltrados = array.filter((hotel) =>
-        hotel.name.toLowerCase().includes(searchId.current.value.toLowerCase())
-      );
-      return hotelesFiltrados;
-    } else {
-      return array;
-    }
-  }
+  dispatch(getContinentHotels(data))
+}
 
   return (
     <div className="cont-cities">
       <form className="wrap flex center w-100 m-1" method="get">
         <label className='input-text'>
-          <input 
-            type="search"
-            name="search"
-            id="search"
-            placeholder="Search"
-            ref={searchId}
-            onChange={filterCheckCards}
-          />
+          <input type="search" name="search" id="search" placeholder="Search" ref={searchId} onChange={filterHotels} />
         </label>
         <label>
           Choose a Order:
-          <select
-            name="select"
-            defaultValue={"default"}
-            onChange={filterCheckCards}
-            ref={selectId}
-          >
+          <select name="select" defaultValue={"default"} onChange={filterHotels} ref={selectId} >
             <option value="default" disabled>
               Select an order by capacity:
             </option>
@@ -88,15 +57,12 @@ export default function Hotels() {
           </select>
         </label>
       </form>
-
       <div className='Cities-card-container'>
-        {filtrarHoteles.length > 0 ? (
-          filtrarHoteles.map((hotel) => {
+        {hotels.length > 0 && (
+          hotels.map((hotel) => {
             return <HotelCard hotel={hotel} key={hotel._id} id={hotel._id} />;
           })
-        ) : (
-          <NotFound />
-        )}
+        ) }
       </div>
     </div>
   );

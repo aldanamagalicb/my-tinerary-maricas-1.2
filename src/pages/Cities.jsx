@@ -1,80 +1,81 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Checkbox from '../components/Checkbox'
 import CityCard from '../components/Cities/CityCard'
-import NotFound from './NotFound'
-import axios from 'axios'
-import { DB_LINK } from '../url'
-
+import { useSelector, useDispatch } from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions'
 
 export default function Cities() {
 
-    let [ciudades, setCiudades] = useState([])
-    let [filteredCities, setCiudadesFiltradas] = useState([])
-    const America = useRef()
-    const Europa = useRef()
-    const searchId = useRef()
+    const {allCities, continentCities, searchInput, checkBoxes, checkedCities } = useSelector(store => store.citiesReducer)
+    const dispatch = useDispatch()
+    const {getCities, getContinentCities} = citiesActions
 
-    const continentes = [ America, Europa]
+    let [checkboxes, setCheckboxes] = useState([])
+    const searchId = useRef()
+    const input = useRef()
+
 
     useEffect(() => {
-        axios.get(`${DB_LINK}api/cities`)
-        .then(response => setCiudades(response.data.response))
-
-        axios.get(`${DB_LINK}api/cities`)
-        .then(response => setCiudadesFiltradas(response.data.response))
-    }, [])
-
-
-    let checkCities = [...new Set(ciudades.map((ciudad) => ciudad.continent))]
-
-    function filterCheckCards(){
-
-        let checkFiltered = filterCheck()
-        let searchFiltered = filterSearch(checkFiltered)
-        setCiudadesFiltradas(searchFiltered)
-        localStorage.setItem('filteredCities', JSON.stringify(searchFiltered))
+        if (searchInput || checkBoxes){
+        let aux = {
+            search: searchInput,
+            continents: checkBoxes,
+            continentChecked: checkedCities
+        }
+        dispatch(getContinentCities(aux))
+        searchId.current.value = searchInput
+        if (checkedCities){
+            checkedCities.forEach(check => {
+                let checked = Array.from(input.current).find(input => input.value === check)
+                checked.checked = true
+        })
     }
+    } else {
+        dispatch(getCities())
+    }
+    // eslint-disable-next-line
+    },[])
 
-    function filterCheck(){
+
+    function filterCheck(check){
         let checks = []
-        continentes.filter((continente) => continente.current?.checked).map((continente) => checks.push(continente.current.value))
-        let filteredCities = ciudades.filter((ciudad) => checks.includes(ciudad.continent))
+        if(check.target.checked){
+            checks = [...checkedCities, check.target.value]
+    }else{
+        checks = checkboxes.filter((checkbox) => checkbox !== check.target.value)
+    }
+    setCheckboxes(checks)
+    return checks
+}
 
-        if(checks.length === 0){
-            return ciudades
+    function filterCities(cityFil){
+        let check = filterCheck(cityFil)
+        let url = check.map( (continent) => `continent=${continent}`).join('&');
+        let data = {
+            continents: url,
+            search: searchId.current.value,
+            continentChecked: check
         }
-        return filteredCities
+        dispatch(getContinentCities(data))
     }
 
-    function filterSearch(array){
-        if(searchId.current.value !== ''){
-            let filteredCities = array.filter((ciudad) => ciudad.name.toLowerCase().includes(searchId.current.value.toLowerCase()))
-            return filteredCities
-        }else{
-            return array
-        }
-    }
 
     return (
         <div className='cont-cities'>
             <div className='wrap flex center w-100 m-1'>
-                <div className='flex justify-around mx-1 gap-2'>
-                    {checkCities.map((continente, index) => {
-                        return <Checkbox continent={continente} value={continente} refId={continentes[index]} fx={filterCheckCards}/>
+                <form ref={input} className='flex justify-around mx-1 gap-2'>
+                    {continentCities.map((continent) => {
+                        return <Checkbox continent={continent} value={continent} fx={filterCities}/>
                     })}
-                </div>
+                </form>
                 <div className='input-text'>
-                    <input type="text" placeholder="Search" ref={searchId} onChange={filterCheckCards} />
+                    <input type="text" placeholder="Search" ref={searchId} onChange={filterCities} />
                 </div>
             </div>
             <div className='Cities-card-container'>
-                {filteredCities.length > 0 ? (filteredCities.map((city) => {
-                    return <CityCard city={city} id={city._id}  />
-                }))
-                : (
-                    <NotFound />
-                    )
-                }
+                {allCities.length > 0 && (allCities.map((city) => {
+                    return <CityCard city={city} id={city._id} />
+                }))}
             </div>
         </div>
     )
