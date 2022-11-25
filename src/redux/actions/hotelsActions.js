@@ -24,10 +24,12 @@ const getContinentHotels = createAsyncThunk('getContinentHotels', async (data) =
         }
         return info
     } catch (error) {
-        console.log(error)
-        return {
-            payload: 'error'
+        let info = {
+            response: error.response.data.response,
+            name: data.name,
+            order: data.order
         }
+        return info
     }
 })
 
