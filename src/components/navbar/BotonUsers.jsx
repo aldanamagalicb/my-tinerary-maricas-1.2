@@ -2,23 +2,61 @@ import React from 'react'
 import BotonDown from './BotonDown'
 import { useState } from 'react';
 import IconUser from './IconUser';
-import { useSelector } from 'react-redux';
+import userActions from '../../redux/actions/userActions';
+import { useSelector, useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 
 
 export default function BotonUsers() {
-    let { logged } = useSelector(store => store.userReducer)
+    const {logout} = userActions
+    const dispatch = useDispatch();
+    let { logged, token, name, photo } = useSelector(store => store.userReducer)
     const [show, setShow] = useState(false);
     const display = () => {
-        setShow(!show)
-    }
+        setShow(!show)}
+
+    function logOut() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log out!'
+            })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        dispatch(logout(token))
+                        Swal.fire(
+                            'Logged out!',
+                            'You have been logged out',
+                            'success'
+                        )
+                    }
+                })
+        } 
+
     return (
         <div className='flex column'>
-            <IconUser onClick={display} />
+            {logged ? (
+                <div>
+                    <img src={photo} alt={name} width='40px' onClick={display} />
+                    <p>{name}</p>
+                </div>
+            )
+                : (
+                    <IconUser onClick={display} />
+                    )
+                }
             {show && (
             <div className='flex column'>
                 { logged ?  
                     (
-                        <BotonDown text="logOut" rute='/home'  />
+                        <>
+                        <BotonDown text="logOut" rute='/home' onClick={logOut} />
+                        <BotonDown text="profile" rute='/' />
+                        </>
                     ) : (
                         <>
                         <BotonDown text="Sign In" rute='/signin' />
