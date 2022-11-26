@@ -53,7 +53,10 @@ export default function BotonUsers() {
             <div className='flex column'>
                 { logged ?  
                     (
+                        <>
                         <BotonDown text="logOut" rute='/home' onClick={logOut} />
+                        <BotonDown text="profile" rute='/' />
+                        </>
                     ) : (
                         <>
                         <BotonDown text="Sign In" rute='/signin' />
