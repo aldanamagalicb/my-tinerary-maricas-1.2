@@ -16,24 +16,25 @@ import MyHotels from './pages/MyHotels';
 import MyTineraries from './pages/MyTineraries';
 import MyShows from './pages/MyShows';
 import { useEffect } from 'react'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import userActions from './redux/actions/userActions';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
 
-  let { logged } = useSelector(store => store.userReducer)
+  let { logged, role } = useSelector(store => store.userReducer)
+  console.log(role)
   let dispatch = useDispatch()
   let { reEnter } = userActions
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token'))
-    console.log(token?.token.user)
     if (token) {
       dispatch(reEnter(token.token.user))
     }
     // eslint-disable-next-line
-  },[])
-  
+  }, [])
+
 
   return (
     <Layout>
@@ -47,12 +48,19 @@ function App() {
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
-        <Route path="/newcity" element={<NewCity />} />
-        <Route path="/newhotel" element={<NewHotel />} />
-        <Route path="/mycities" element={<MyCities/>} />
-        <Route path="/myhotels" element={<MyHotels/>} />
-        <Route path="/mytineraries" element={<MyTineraries/>} />
-        <Route path="/myshows" element={<MyShows/>} />
+
+        <Route 
+        element={
+        <ProtectedRoute isAllowed={role === "admin"} reDirect="/" /> }>
+          <Route path="/newcity" element={<NewCity />} />
+          <Route path="/newhotel" element={<NewHotel />} />
+          <Route path="/mycities" element={<MyCities />} />
+          <Route path="/myhotels" element={<MyHotels />} />
+        </Route>
+        <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
+          <Route path="/mytineraries" element={<MyTineraries />} />
+          <Route path="/myshows" element={<MyShows />} />
+        </Route>
       </Routes>
     </Layout>
   );

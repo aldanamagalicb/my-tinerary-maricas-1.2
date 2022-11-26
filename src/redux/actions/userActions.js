@@ -6,17 +6,25 @@ const login = createAsyncThunk('login user', async (data) => {
     try {
         let user = await axios.post(`${DB_LINK}api/auth/sign-in`, data)
         console.log(user)
-        return {
-            success: true,
-            response: user.data.response,
+        if (user.data.success) {
+            return { 
+                success: true, 
+                response: user.data.response
+            }
+        } else {
+            return { 
+                success: false, 
+                response: user.data.message
+            }
         }
     } catch (error) {
-        console.log(error.response)
-        return {
-            success: false,
-            response: error.response.data.message
+        console.log(error)
+        return { 
+            success: false, 
+            response: error.message 
         }
     }
+    
 })
 
 const reEnter = createAsyncThunk('reEnter', async (token) => {
