@@ -9,7 +9,8 @@ const initialState = {
     photo: "",
     logged: false,
     token: "",
-    role: ""
+    role: "",
+    id: ""
 };
 
 const usersReducers = createReducer(initialState, (builder) => {
@@ -23,6 +24,7 @@ const usersReducers = createReducer(initialState, (builder) => {
                 localStorage.setItem('token', JSON.stringify({ token: { user: token } }))
                 let newState = {
                     ...state,
+                    id: user.id,
                     name: user.name,
                     role: user.role,
                     photo: user.photo,

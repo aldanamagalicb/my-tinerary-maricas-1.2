@@ -15,6 +15,7 @@ import MyCities from './pages/MyCities';
 import MyHotels from './pages/MyHotels';
 import MyTineraries from './pages/MyTineraries';
 import MyShows from './pages/MyShows';
+import Profile from './pages/Profile';
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import userActions from './redux/actions/userActions';
@@ -49,14 +50,17 @@ function App() {
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
 
-        <Route 
-        element={
-        <ProtectedRoute isAllowed={role === "admin"} reDirect="/" /> }>
+        <Route element={<ProtectedRoute isAllowed={role === "admin" || role === "user"} redirect="/signin" />}>
+          <Route path="/myprofile" element={<Profile />} />
+        </Route>
+
+        <Route element={<ProtectedRoute isAllowed={role === "admin"} reDirect="/" />}>
           <Route path="/newcity" element={<NewCity />} />
           <Route path="/newhotel" element={<NewHotel />} />
           <Route path="/mycities" element={<MyCities />} />
           <Route path="/myhotels" element={<MyHotels />} />
         </Route>
+
         <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
           <Route path="/mytineraries" element={<MyTineraries />} />
           <Route path="/myshows" element={<MyShows />} />
