@@ -50,7 +50,7 @@ function App() {
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
 
-        <Route element={<ProtectedRoute isAllowed={role === "admin" || role === "user"} redirect="/signin" />}>
+        <Route element={<ProtectedRoute isAllowed={role === "admin" || role === "user"} reDirect="/" />}>
           <Route path="/myprofile" element={<Profile />} />
         </Route>
 
@@ -61,7 +61,7 @@ function App() {
           <Route path="/myhotels" element={<MyHotels />} />
         </Route>
 
-        <Route element={<ProtectedRoute isAllowed={role === "user"} />}>
+        <Route element={<ProtectedRoute isAllowed={role === "user"} reDirect="/" />}>
           <Route path="/mytineraries" element={<MyTineraries />} />
           <Route path="/myshows" element={<MyShows />} />
         </Route>
