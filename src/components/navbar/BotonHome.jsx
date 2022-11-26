@@ -4,7 +4,9 @@ import { useState } from 'react';
 import IconHome from './IconHome';
 import { useSelector } from 'react-redux';
 
+
 export default function BotonUsers() {
+
     let { role } = useSelector(store => store.userReducer)
     const [show, setShow] = useState(false);
     const display = () => {
@@ -12,7 +14,7 @@ export default function BotonUsers() {
     }
     return (
         <div className='flex column center'>
-            <IconHome onClick={display} />
+                <IconHome onClick={display} />
             {show && (
                 <div className='flex column'>
                 { role === "user" ?

@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userActions";
 
-const { login, reEnter } = userActions;
+const { login, reEnter, logout } = userActions;
 
 const initialState = {
     name: "",
@@ -61,6 +61,27 @@ const usersReducers = createReducer(initialState, (builder) => {
             }
         })
 
+        .addCase(logout.fulfilled, (state, action) => {
+            const { success,response } = action.payload
+            if (success) {
+                localStorage.removeItem('token')
+                let newState = {
+                    ...state,
+                    name: '',
+                    photo: '',
+                    logged: false,
+                    token: '',
+                    role: ''
+                }
+                return newState
+            } else {
+                let newState = {
+                    ...state,
+                    mensaje: response
+                }
+                return newState
+            }
+        })
 
 })
 
