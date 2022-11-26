@@ -9,6 +9,7 @@ const initialState = {
     photo: "",
     logged: false,
     token: "",
+    role: ""
 };
 
 const usersReducers = createReducer(initialState, (builder) => {
@@ -18,10 +19,12 @@ const usersReducers = createReducer(initialState, (builder) => {
             const { success, response } = action.payload
             if (success) {
                 let { user, token } = response
+                console.log(user)
                 localStorage.setItem('token', JSON.stringify({ token: { user: token } }))
                 let newState = {
                     ...state,
                     name: user.name,
+                    role: user.role,
                     photo: user.photo,
                     logged: true,
                     token: token
@@ -32,7 +35,7 @@ const usersReducers = createReducer(initialState, (builder) => {
                     ...state,
                     message: response
                 }
-                return newState
+                return newState 
             }
         })
 

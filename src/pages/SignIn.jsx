@@ -31,38 +31,36 @@ export default function SignIn() {
                     title: 'User logged in!',
                     showConfirmButton: true,
                 })
-                    .then(make => {
-                        console.log(make.isConfirmed)
-                        if (make.isConfirmed) {                           
-                            window.location.href = '/home'
-                        }                      
-                    })
+                    // .then(make => {
+                    //     console.log(make.isConfirmed)
+                    //     if (make.isConfirmed) {                           
+                    //         window.location.href = '/home'
+                    //     }                      
+                    // })
             } else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: response.payload.response
+                    text: response.payload.response,
                 })
             }
         } catch (error) {
             console.log(error)
         }
-
-        localStorage.setItem('user', JSON.stringify(user))
     }
 
     return (
-        <div class="card-form">
-            <div class="cont-h2">
+        <div className="card-form">
+            <div className="cont-h2">
                 <h2>SIGN IN</h2>
             </div>
-            <form class="form" ref={form}>
+            <form className="form" ref={form}>
                 <InputSigniN className="input-text" type="text" placeholder=" email" id={email} />
                 <InputSigniN className="input-text" type="password" placeholder=" Password" id={password} />
                 <InputSigniN className="input-button" type="submit" value="Login" fx={sendForm} />
             </form>
             <nav id="socialLogin">
-                <button href="#" class="google"></button>
+                <button href="#" className="google"></button>
             </nav>
             <p>You dont have an account?
                 <NavLink to='/signup'>
