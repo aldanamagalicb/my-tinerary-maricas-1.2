@@ -41,8 +41,8 @@ export default function BotonUsers() {
         <div className='flex column'>
             {logged ? (
                 <div>
-                    <img src={photo} alt={name} width='40px' onClick={display} />
-                    <p>{name}</p>
+                    <img src={photo} alt={name} width='65px' onClick={display} />
+                    <p className='text-white'>{name}</p>
                 </div>
             )
                 : (
@@ -54,8 +54,8 @@ export default function BotonUsers() {
                 { logged ?  
                     (
                         <>
-                        <BotonDown text="logOut" rute='/home' onClick={logOut} />
-                        <BotonDown text="profile" rute='/' />
+                        <BotonDown text="Log Out" rute='/home' onClick={logOut} />
+                        <BotonDown text="My Profile" rute='/' />
                         </>
                     ) : (
                         <>

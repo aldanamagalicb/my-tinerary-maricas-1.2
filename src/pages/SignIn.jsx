@@ -55,7 +55,7 @@ export default function SignIn() {
                 <h2>SIGN IN</h2>
             </div>
             <form className="form" ref={form}>
-                <InputSigniN className="input-text" type="text" placeholder=" email" id={email} />
+                <InputSigniN className="input-text" type="text" placeholder=" Email" id={email} />
                 <InputSigniN className="input-text" type="password" placeholder=" Password" id={password} />
                 <InputSigniN className="input-button" type="submit" value="Login" fx={sendForm} />
             </form>
