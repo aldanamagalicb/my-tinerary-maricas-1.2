@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userActions";
 
-const { login, reEnter, logout } = userActions;
+const { login, reEnter, logout, updateMyProfile, doUser } = userActions;
 
 const initialState = {
     name: "",
@@ -9,7 +9,9 @@ const initialState = {
     photo: "",
     logged: false,
     token: "",
-    role: ""
+    role: "",
+    id: "",
+    myUser: {}
 };
 
 const usersReducers = createReducer(initialState, (builder) => {
@@ -23,6 +25,7 @@ const usersReducers = createReducer(initialState, (builder) => {
                 localStorage.setItem('token', JSON.stringify({ token: { user: token } }))
                 let newState = {
                     ...state,
+                    id: user.id,
                     name: user.name,
                     role: user.role,
                     photo: user.photo,
@@ -35,7 +38,7 @@ const usersReducers = createReducer(initialState, (builder) => {
                     ...state,
                     message: response
                 }
-                return newState 
+                return newState
             }
         })
 
@@ -62,7 +65,7 @@ const usersReducers = createReducer(initialState, (builder) => {
         })
 
         .addCase(logout.fulfilled, (state, action) => {
-            const { success,response } = action.payload
+            const { success, response } = action.payload
             if (success) {
                 localStorage.removeItem('token')
                 let newState = {
@@ -83,6 +86,16 @@ const usersReducers = createReducer(initialState, (builder) => {
             }
         })
 
+        .addCase(updateMyProfile.fulfilled, (state, action) => {
+            return { ...state, myUser: action.payload }
+        })
+
+        .addCase(doUser.fulfilled, (state, action) => {
+            return {
+                ...state,
+                myUser: action.payload.response,
+            };
+        })
 })
 
-export default usersReducers
+export default usersReducers;

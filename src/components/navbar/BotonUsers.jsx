@@ -55,7 +55,7 @@ export default function BotonUsers() {
                     (
                         <>
                         <BotonDown text="Log Out" rute='/home' onClick={logOut} />
-                        <BotonDown text="My Profile" rute='/' />
+                        <BotonDown text="My Profile" rute="/myprofile/"/>
                         </>
                     ) : (
                         <>
