@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export default function BotonUsers() {
     const {logout} = userActions
     const dispatch = useDispatch();
-    let { logged, token, name, photo } = useSelector(store => store.userReducer)
+    const { logged, token, name, photo } = useSelector(store => store.userReducer)
     const [show, setShow] = useState(false);
     const display = () => {
         setShow(!show)}

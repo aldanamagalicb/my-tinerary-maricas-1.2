@@ -31,12 +31,6 @@ export default function SignIn() {
                     title: 'User logged in!',
                     showConfirmButton: true,
                 })
-                    // .then(make => {
-                    //     console.log(make.isConfirmed)
-                    //     if (make.isConfirmed) {                           
-                    //         window.location.href = '/home'
-                    //     }                      
-                    // })
             } else {
                 Swal.fire({
                     icon: 'error',

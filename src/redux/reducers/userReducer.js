@@ -5,6 +5,7 @@ const { login, reEnter, logout, updateMyProfile, doUser } = userActions;
 
 const initialState = {
     name: "",
+    age: "",
     lastName: "",
     photo: "",
     logged: false,
@@ -27,6 +28,7 @@ const usersReducers = createReducer(initialState, (builder) => {
                     ...state,
                     id: user.id,
                     name: user.name,
+                    age: user.age,
                     role: user.role,
                     photo: user.photo,
                     logged: true,
@@ -43,16 +45,16 @@ const usersReducers = createReducer(initialState, (builder) => {
         })
 
         .addCase(reEnter.fulfilled, (state, action) => {
-            console.log(action.payload.response)
-            const { success, response } = action.payload
+            const { success, response, token } = action.payload
             if (success) {
-                let { user, token } = response
+                let { user} = response
                 let newState = {
                     ...state,
                     name: user.name,
                     photo: user.photo,
+                    role: user.role,
                     logged: true,
-                    token: token
+                    token: token    
                 }
                 return newState
             } else {
@@ -91,6 +93,7 @@ const usersReducers = createReducer(initialState, (builder) => {
         })
 
         .addCase(doUser.fulfilled, (state, action) => {
+            console.log(action.payload.response)
             return {
                 ...state,
                 myUser: action.payload.response,
