@@ -11,10 +11,10 @@ export default function MyShows() {
     const {myShows} = useSelector(store => store.hotelsReducer)
     const {getMyShow} = hotelsActions
 
-        let userId = '636d88b4376f4bce491f0bcf'
+    const { id } = useSelector(store => store.userReducer)
     
     useEffect(() => {
-        dispatch(getMyShow(userId))
+        dispatch(getMyShow(id))
         // eslint-disable-next-line
     },[])
     console.log(myShows);
