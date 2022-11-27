@@ -1,14 +1,15 @@
 import React from 'react'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import '../components/form/form.css'
 import hotelsActions from '../redux/actions/hotelsActions'
 import InputSignUp from '../components/form/InputSignUp'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
-
+import { DB_LINK } from "../url";
+import axios from 'axios';
 
 export default function NewHotel() {
-
+    const {id, token} = useSelector(store => store.userReducer)
     const dispatch = useDispatch()
     const { doHotel } = hotelsActions
     const form = useRef()
@@ -17,6 +18,17 @@ export default function NewHotel() {
     const photo1 = useRef()
     const photo2 = useRef()
     const capacity = useRef()
+    const cityId = useRef()
+    const [cities, setCities] = useState([]);
+
+
+    useEffect(() => {
+        axios.get(`${DB_LINK}api/cities`)
+            .then((res) => setCities(res.data.response));
+        // eslint-disable-next-line
+    }, []);
+
+
 
     async function validation(event) {
         event.preventDefault()
@@ -24,11 +36,11 @@ export default function NewHotel() {
             name: name.current.value,
             photo: [photo.current.value, photo1.current.value, photo2.current.value],
             capacity: capacity.current.value,
-            cityId: "63715951fc1586373cba7dc2",
-            userId: "636d82c66a32c7c4c029d58a"
+            cityId,
+            userId: id
         }
         try {
-            let response = await dispatch(doHotel(NewHotel))
+            let response = await dispatch(doHotel(NewHotel, token))
             console.log(response.payload)
             if (response.payload.success) {
                 Swal.fire({
@@ -61,11 +73,15 @@ export default function NewHotel() {
                 <h2>CREATE HOTEL</h2>
             </div>
             <form className="form" ref={form}>
-                <InputSignUp className="input-text" type="text" placeholder=" name" id={name} />
-                <InputSignUp className="input-text" type="text" placeholder=" photo" id={photo} />
-                <InputSignUp className="input-text" type="text" placeholder=" photo" id={photo1} />
-                <InputSignUp className="input-text" type="text" placeholder=" photo" id={photo2} />
-                <InputSignUp className="input-text" type="text" placeholder=" capacity" id={capacity} />
+                <InputSignUp className="input-text" type="text" placeholder=" Name" id={name} />
+                <select ref={cityId} className="input-text" id="cityId">
+                    <option>Select the city</option>
+                    {cities.map((city) => ( <option key={city._id} value={city._id}> {city.name}</option>))}
+                </select>
+                <InputSignUp className="input-text" type="text" placeholder=" Photo 1" id={photo} />
+                <InputSignUp className="input-text" type="text" placeholder=" Photo 2" id={photo1} />
+                <InputSignUp className="input-text" type="text" placeholder=" Photo 3" id={photo2} />
+                <InputSignUp className="input-text" type="text" placeholder=" Capacity" id={capacity} />
                 <InputSignUp className="input-button" type="submit" value="Create new hotel" fx={validation} />
             </form>
         </div>

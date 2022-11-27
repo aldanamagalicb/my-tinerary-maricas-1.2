@@ -1,6 +1,7 @@
 import './cities.css'
 import { useDispatch } from 'react-redux'
 import citiesActions from '../../redux/actions/citiesActions'
+import { useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 import React from 'react'
 
@@ -11,9 +12,9 @@ export default function MyCard(props) {
     const dispatch = useDispatch()
     const { deleteMyTineraries, updateMyTineraries } = citiesActions
     const { tinerary } = props
-
+    const { token } = useSelector(store => store.userReducer)
     async function deleteTinerary() {
-        try {
+        try {  
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -26,8 +27,8 @@ export default function MyCard(props) {
                         'Deleted!',
                         'Your file has been deleted.',
                         'success'
-                    )
-                    dispatch(deleteMyTineraries(tinerary._id))
+                        )
+                    dispatch(deleteMyTineraries({id: tinerary._id, token}))
                 }
             })
 
@@ -86,7 +87,7 @@ export default function MyCard(props) {
                     if (duration !== '') {
                         data.tinerarie.duration = duration
                     }
-                    dispatch(updateMyTineraries(data))
+                    dispatch(updateMyTineraries({data, token}))
                 }
             })
 

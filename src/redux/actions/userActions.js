@@ -5,7 +5,6 @@ import { DB_LINK } from "../../url";
 const login = createAsyncThunk('login user', async (data) => {
     try {
         let user = await axios.post(`${DB_LINK}api/auth/sign-in`, data)
-        console.log(user)
         if (user.data.success) {
             return {
                 success: true,

@@ -21,7 +21,6 @@ export default function NewShow() {
     const { id, token } = useSelector(store => store.userReducer)
 
     useEffect(() => {
-        console.log(id)
         axios.get(`${DB_LINK}api/hotels`)
             .then((res) => setHotels(res.data.response));
         // eslint-disable-next-line

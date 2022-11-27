@@ -9,13 +9,12 @@ export default function MyCities() {
 
     const dispatch = useDispatch()
     const {myCities} = useSelector(store => store.citiesReducer)
+    const {id} = useSelector(store => store.userReducer)
     const {getMyCities} = citiesActions
 
-    let userId = '636d82c66a32c7c4c029d58a'
-    
 
     useEffect(() => {
-        dispatch(getMyCities(userId))
+        dispatch(getMyCities(id))
         // eslint-disable-next-line
     },[])
 

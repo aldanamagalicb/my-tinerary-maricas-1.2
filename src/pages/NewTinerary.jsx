@@ -23,7 +23,6 @@ export default function NewTinerary() {
     const { id, token } = useSelector(store => store.userReducer)
 
     useEffect(() => {
-        console.log(id)
         axios.get(`${DB_LINK}api/cities`)
             .then((res) => setCities(res.data.response));
         // eslint-disable-next-line
@@ -41,7 +40,6 @@ export default function NewTinerary() {
             duration: duration.current.value,
             userId: id,
         }
-        console.log(id)
         let header = { headers: { Authorization: `Bearer ${token}` } };
         try {
             let response = await axios.post(`${DB_LINK}api/itineraries/`, newtinerary, header)
