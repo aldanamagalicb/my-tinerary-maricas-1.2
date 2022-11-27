@@ -87,7 +87,7 @@ export default function MyCard(props) {
                     if (duration !== '') {
                         data.tinerarie.duration = duration
                     }
-                    dispatch(updateMyTineraries(data))
+                    dispatch(updateMyTineraries({data, token}))
                 }
             })
 

@@ -124,9 +124,10 @@ const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async ({id, tok
     }
 });
 
-const updateMyTineraries = createAsyncThunk("updateMyTineraries",async (data)=>{
+const updateMyTineraries = createAsyncThunk("updateMyTineraries",async ({data, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.put(`${DB_LINK}api/itineraries/${data.id}`, data.tinerarie);
+        const response = await axios.put(`${DB_LINK}api/itineraries/${data.id}`, data.tinerarie, headers);
     return response.data.response;
 }
     catch(error){
