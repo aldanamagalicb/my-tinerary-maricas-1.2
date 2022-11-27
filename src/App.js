@@ -16,6 +16,7 @@ import MyHotels from './pages/MyHotels';
 import MyTineraries from './pages/MyTineraries';
 import NewTinerary from './pages/NewTinerary';
 import MyShows from './pages/MyShows';
+import NewShow from './pages/NewShow';
 import Profile from './pages/Profile';
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -66,6 +67,7 @@ function App() {
           <Route path="/mytineraries" element={<MyTineraries />} />
           <Route path="/newtinerary" element={<NewTinerary />} />
           <Route path="/myshows" element={<MyShows />} />
+          <Route path="/newshow" element={<NewShow />} />
         </Route>
       </Routes>
     </Layout>
