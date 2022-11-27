@@ -1,5 +1,5 @@
 import './cities.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import citiesActions from '../../redux/actions/citiesActions'
 import Swal from 'sweetalert2'
 import React from 'react'
@@ -7,7 +7,7 @@ import React from 'react'
 
 
 export default function MyCard(props) {
-
+    const {token} = useSelector(store => store.userReducer)
     const dispatch = useDispatch()
     const { deleteMyCity, updateMyCity } = citiesActions
     const { city } = props
@@ -27,8 +27,9 @@ export default function MyCard(props) {
                         'Your file has been deleted.',
                         'success'
                     )
-                    dispatch(deleteMyCity(city._id))
-                    // window.location.reload()
+                    dispatch(deleteMyCity({id: city._id, token}))
+                } else if (result.isDenied) {
+                    Swal.fire('Changes are not saved', '', 'info')
                 }
             })
 

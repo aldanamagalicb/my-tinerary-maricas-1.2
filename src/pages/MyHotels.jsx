@@ -9,12 +9,11 @@ export default function MyHotels() {
 
     const dispatch = useDispatch()
     const {hotelsAdmin} = useSelector(store => store.hotelsReducer)
+    const {id} = useSelector(store => store.userReducer)
     const {getMyHotels} = hotelsActions
-
-        let userId = '636d82c66a32c7c4c029d58a'
     
     useEffect(() => {
-        dispatch(getMyHotels(userId))
+        dispatch(getMyHotels(id))
         // eslint-disable-next-line
     },[])
     

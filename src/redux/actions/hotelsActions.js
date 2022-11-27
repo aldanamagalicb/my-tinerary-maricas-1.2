@@ -33,9 +33,11 @@ const getContinentHotels = createAsyncThunk('getContinentHotels', async (data) =
     }
 })
 
-const doHotel = createAsyncThunk('doHotel', async (data) => {
+const doHotel = createAsyncThunk('doHotel', async (data, token) => {
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
+    console.log(token)
     try{
-        const response = await axios.post(`${DB_LINK}api/hotels`, data)
+        const response = await axios.post(`${DB_LINK}api/hotels`, data, headers)
     if (response.data.id) {
         let info = {
             id: response.data.id,

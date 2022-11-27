@@ -69,10 +69,11 @@ const getMyCities = createAsyncThunk("getMyCities",async (id)=>{
     
 });
 
-const deleteMyCity = createAsyncThunk("deleteMyCity",async (id)=>{
+const deleteMyCity = createAsyncThunk("deleteMyCity",async ({id, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.delete(`${DB_LINK}api/cities/${id}`);
-    return response.data;
+        const response = await axios.delete(`${DB_LINK}api/cities/${id}`, headers);
+    return response.data.response;
 }
     catch(error){
         console.log(error)
@@ -110,9 +111,10 @@ const getMyTineraries = createAsyncThunk("getMyTineraries",async (id)=>{
     
 });
 
-const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async (id)=>{
+const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async ({id, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.delete(`${DB_LINK}api/itineraries/${id}`);
+        const response = await axios.delete(`${DB_LINK}api/itineraries/${id}`, headers );
     return response.data;
 }
     catch(error){
@@ -120,7 +122,6 @@ const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async (id)=>{
             payload: 'An error has ocurred'
         }
     }
-    
 });
 
 const updateMyTineraries = createAsyncThunk("updateMyTineraries",async (data)=>{

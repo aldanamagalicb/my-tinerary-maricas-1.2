@@ -17,7 +17,6 @@ export default function MyShows() {
         dispatch(getMyShow(id))
         // eslint-disable-next-line
     },[])
-    console.log(myShows);
     return (
       <div className="cont-h2">
         <h2>My Shows</h2>

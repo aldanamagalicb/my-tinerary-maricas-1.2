@@ -45,7 +45,7 @@ const citiesReducer = createReducer(initialState,
             })
 
             .addCase(deleteMyCity.fulfilled, (state, action) => {
-                let mycity = state.myCities.filter(city => city._id !== action.payload.data._id)
+                let mycity = state.myCities.filter(city => city._id !== action.payload._id)
                 return { ...state, myCities: mycity }
             })
 
@@ -59,7 +59,7 @@ const citiesReducer = createReducer(initialState,
             })
 
             .addCase(deleteMyTineraries.fulfilled, (state, action) => {
-                let mytinerary = state.myTineraries.filter(tinerary => tinerary._id !== action.payload.data._id)
+                let mytinerary = state.myTineraries.filter(tinerary => tinerary._id !== action.payload.response._id)
                 return { ...state, myTineraries: mytinerary }
             })
 
