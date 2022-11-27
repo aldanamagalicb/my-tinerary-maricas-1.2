@@ -2,13 +2,13 @@ import React from "react";
 import { useDispatch } from 'react-redux'
 import userActions from '../../redux/actions/userActions'
 import Swal from 'sweetalert2'
+import { useSelector } from "react-redux";
 
-export default function Details(props) {
+export default function Details() {
   const dispatch = useDispatch()
   const { updateMyProfile } = userActions
-  let { user } = props;
- 
-
+  const { myUser } = useSelector(store => store.userReducer);
+  
   async function updateUser() {
     try {
       const { value: formValues } = await Swal.fire({
@@ -28,7 +28,7 @@ export default function Details(props) {
           let age = document.getElementById('age').value
 
           let data = {
-            id: user._id,     
+            id: myUser._id,     
             user: {
             }
           }
@@ -60,11 +60,11 @@ export default function Details(props) {
   return (
     <div className="cont-card-detail">
       <div className="container-img-detail">
-        <img src={user.photo} alt={user.name} />
+        <img src={myUser.photo} alt={myUser.name} />
       </div>
-      <h1>{user.name} {user.lastName}</h1>
+      <h1>{myUser.name} {myUser.lastName}</h1>
       <div>
-        <h3>Age: {user.age}</h3>
+        <h3>Age: {myUser.age}</h3>
         <button id="boton-editeprofile" onClick={updateUser}>Edit my Profile</button>
       </div>
     </div>

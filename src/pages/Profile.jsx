@@ -9,17 +9,13 @@ export default function Profile() {
 
     const { doUser } = userActions;
     const dispatch = useDispatch();
-    const { id, myUser } = useSelector(store => store.userReducer);
-
+    const {id} = useSelector(store => store.userReducer);
     useEffect(() => {
         dispatch(doUser(id))
-        console.log(myUser)
         // eslint-disable-next-line
     }, []);
     
     return (
-        <UserCard user={myUser} />
+        <UserCard  />
     );
 }
-
-

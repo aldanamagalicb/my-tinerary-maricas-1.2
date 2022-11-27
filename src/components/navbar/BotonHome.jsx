@@ -23,7 +23,8 @@ export default function BotonUsers() {
                                     <BotonDown text="Home" rute='/home' />
                                     <BotonDown text="Hotels" rute='/hotels' />
                                     <BotonDown text="Cities" rute='/cities' />
-                                    <BotonDown text="MyTineraries" rute='/mytineraries' />
+                                    <BotonDown text="My Tineraries" rute='/mytineraries' />
+                                    <BotonDown text="New tinerary" rute='/newtinerary' />
                                     <BotonDown text="MyShows" rute='/myshows' />
                                 </>
                             )

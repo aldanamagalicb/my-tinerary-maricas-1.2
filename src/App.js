@@ -14,6 +14,7 @@ import HotelDetails from './pages/HotelDetails';
 import MyCities from './pages/MyCities';
 import MyHotels from './pages/MyHotels';
 import MyTineraries from './pages/MyTineraries';
+import NewTinerary from './pages/NewTinerary';
 import MyShows from './pages/MyShows';
 import Profile from './pages/Profile';
 import { useEffect } from 'react'
@@ -24,14 +25,14 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
 
   let { logged, role } = useSelector(store => store.userReducer)
-  console.log(role)
   let dispatch = useDispatch()
   let { reEnter } = userActions
 
   useEffect(() => {
     let token = JSON.parse(localStorage.getItem('token'))
     if (token) {
-      dispatch(reEnter(token.token.user))
+      let user  = token.token.user
+      dispatch(reEnter(user))
     }
     // eslint-disable-next-line
   }, [])
@@ -49,10 +50,10 @@ function App() {
         <Route path="/hotels" element={<Hotels />} />
         <Route path="/cities/:id" element={<CitiesDetails />} />
         <Route path="/hotels/:id" element={<HotelDetails />} />
-
-        <Route element={<ProtectedRoute isAllowed={role === "admin" || role === "user"} reDirect="/" />}>
+        {logged && (
+        <Route element={<ProtectedRoute isAllowed={logged} reDirect="/" />}>
           <Route path="/myprofile" element={<Profile />} />
-        </Route>
+        </Route>)}
 
         <Route element={<ProtectedRoute isAllowed={role === "admin"} reDirect="/" />}>
           <Route path="/newcity" element={<NewCity />} />
@@ -63,6 +64,7 @@ function App() {
 
         <Route element={<ProtectedRoute isAllowed={role === "user"} reDirect="/" />}>
           <Route path="/mytineraries" element={<MyTineraries />} />
+          <Route path="/newtinerary" element={<NewTinerary />} />
           <Route path="/myshows" element={<MyShows />} />
         </Route>
       </Routes>

@@ -39,7 +39,7 @@ export default function MyCard(props) {
     async function updateTinerary() {
         try {
             const { value: formValues } = await Swal.fire({
-                title: 'Update City',
+                title: 'Update Tinerary',
                 showCancelButton: true,
                 confirmButtonText: 'Update',
                 html:
