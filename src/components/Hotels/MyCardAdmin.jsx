@@ -1,9 +1,10 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 import React from 'react'
 import hotelsActions from '../../redux/actions/hotelsActions'
 
 export default function MyCardAdmin(props) {
+    const {token} = useSelector(store => store.userReducer)
     const { hotel } = props
     const dispatch = useDispatch()
     const { deleteMyHotel, updateMyHotel } = hotelsActions
@@ -25,8 +26,13 @@ export default function MyCardAdmin(props) {
                         'Your file has been deleted.',
                         'success'
                     )
-                    dispatch(deleteMyHotel(hotel._id))
-                    window.location.reload()
+                    dispatch(deleteMyHotel({id:hotel._id, token}))
+                } else {
+                    Swal.fire(
+                        'Cancelled',
+                        'Your file is safe :)',
+                        'error'
+                    )
                 }
             })
 
@@ -89,12 +95,14 @@ export default function MyCardAdmin(props) {
                     } else {
                         data.hotels.photo = hotel.photo
                     }
-                    dispatch(updateMyHotel(data))
+                    dispatch(updateMyHotel({data, token}))
                 }
             })
 
             if (formValues) {
                 Swal.fire(JSON.stringify(formValues))
+            } else {
+                Swal.fire('Cancelled')
             }
 
         } catch (error) {

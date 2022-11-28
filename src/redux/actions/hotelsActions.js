@@ -24,10 +24,12 @@ const getContinentHotels = createAsyncThunk('getContinentHotels', async (data) =
         }
         return info
     } catch (error) {
-        console.log(error)
-        return {
-            payload: 'error'
+        let info = {
+            response: error.response.data.response,
+            name: data.name,
+            order: data.order
         }
+        return info
     }
 })
 
@@ -71,10 +73,11 @@ const getMyHotels = createAsyncThunk("getMyHotels",async (id)=>{
     
 });
 
-const deleteMyHotel = createAsyncThunk("deleteMyHotel",async (id)=>{
+const deleteMyHotel = createAsyncThunk("deleteMyHotel",async ({id, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.delete(`${DB_LINK}api/hotels/${id}`);
-    return response.data;
+        const response = await axios.delete(`${DB_LINK}api/hotels/${id}`, headers);
+    return response.data.response;
 }
     catch(error){
         console.log(error)
@@ -85,9 +88,10 @@ const deleteMyHotel = createAsyncThunk("deleteMyHotel",async (id)=>{
     
 });
 
-const updateMyHotel = createAsyncThunk("updateMyHotel",async (data)=>{
+const updateMyHotel = createAsyncThunk("updateMyHotel",async ({data, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.patch(`${DB_LINK}api/hotels/${data.id}`, data.hotels);
+        const response = await axios.patch(`${DB_LINK}api/hotels/${data.id}`, data.hotels, headers);
     return response.data.response;
 }
     catch(error){
@@ -112,9 +116,10 @@ const getMyShow = createAsyncThunk("getMyShow",async (id)=>{
     
 });
 
-const deleteMyShow = createAsyncThunk("deleteMyShow",async (id)=>{
+const deleteMyShow = createAsyncThunk("deleteMyShow",async ({id, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.delete(`${DB_LINK}api/shows/${id}`);
+        const response = await axios.delete(`${DB_LINK}api/shows/${id}`, headers);
     return response.data;
 }
     catch(error){
@@ -126,9 +131,10 @@ const deleteMyShow = createAsyncThunk("deleteMyShow",async (id)=>{
     
 });
 
-const updateMyShow = createAsyncThunk("updateMyShow",async (data)=>{
+const updateMyShow = createAsyncThunk("updateMyShow",async ({data, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.patch(`${DB_LINK}api/shows/${data.id}`, data.shows);
+        const response = await axios.patch(`${DB_LINK}api/shows/${data.id}`, data.shows, headers);
     return response.data.response;
 }
     catch(error){

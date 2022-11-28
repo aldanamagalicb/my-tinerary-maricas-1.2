@@ -1,5 +1,5 @@
 import '../Cities/cities.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import hotelsActions from '../../redux/actions/hotelsActions'
 import Swal from 'sweetalert2'
 import React from 'react'
@@ -7,7 +7,7 @@ import React from 'react'
 
 
 export default function MyCardShow(props) {
-
+    const {token} = useSelector(store => store.userReducer)
     const dispatch = useDispatch()
     const { deleteMyShow, updateMyShow } = hotelsActions
     const { show } = props
@@ -27,7 +27,13 @@ export default function MyCardShow(props) {
                         'Your file has been deleted.',
                         'success'
                     )
-                    dispatch(deleteMyShow(show._id))
+                    dispatch(deleteMyShow({id: show._id, token}))
+                } else {
+                    Swal.fire(
+                        'Cancelled',
+                        'Your file is safe :)',
+                        'error'
+                    )
                 }
             })
 
@@ -76,12 +82,14 @@ export default function MyCardShow(props) {
                     if (date !== '') {
                         data.shows.date = date
                     }
-                    dispatch(updateMyShow(data))
+                    dispatch(updateMyShow({data, token}))
                 }
             })
 
             if (formValues) {
                 Swal.fire(JSON.stringify(formValues))
+            } else {
+                Swal.fire('Cancelled')
             }
 
         } catch (error) {

@@ -3,12 +3,12 @@ import { useRef } from 'react'
 import '../components/form/form.css'
 import InputSignUp from '../components/form/InputSignUp'
 import citiesActions from '../redux/actions/citiesActions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Swal from 'sweetalert2'
 
 
 export default function NewCity() {
-
+    const {id} = useSelector(store => store.userReducer)
     const dispatch = useDispatch()
     const { doCity } = citiesActions
     const form = useRef()
@@ -24,7 +24,7 @@ export default function NewCity() {
             continent: continent.current.value,
             photo: photo.current.value,
             population: population.current.value,
-            userId: "636d82c66a32c7c4c029d58a"
+            userId: id
         }
         try {
             let response = await dispatch(doCity(newCity))

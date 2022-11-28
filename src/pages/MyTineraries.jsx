@@ -5,18 +5,19 @@ import '../components/form/form.css'
 import citiesActions from '../redux/actions/citiesActions'
 import { useDispatch, useSelector } from 'react-redux'
 
+
+
 export default function MyTineraries() {
 
     const dispatch = useDispatch()
-    const {myTineraries} = useSelector(store => store.citiesReducer)
-    const {getMyTineraries} = citiesActions
+    const { myTineraries } = useSelector(store => store.citiesReducer)
+    const { id } = useSelector(store => store.userReducer)
+    const { getMyTineraries } = citiesActions
 
-    let userId = '636d86ab376f4bce491f0bc9'
-    
     useEffect(() => {
-        dispatch(getMyTineraries(userId))
+        dispatch(getMyTineraries(id))
         // eslint-disable-next-line
-    },[])
+    }, [])
 
     return (
         <div className="cont-h2">
@@ -24,7 +25,7 @@ export default function MyTineraries() {
             <div className='cont-cities'>
                 <div className='Cities-card-container'>
                     {myTineraries.length > 0 && (myTineraries.map((tinerary) => {
-                        return <MyCardTinerary tinerary={tinerary} id={tinerary._id}  />
+                        return <MyCardTinerary tinerary={tinerary} id={tinerary._id} />
                     }))
                     }
                 </div>

@@ -8,14 +8,25 @@ const getCities = createAsyncThunk("getCities",async ()=>{
 });
 
 const getContinentCities = createAsyncThunk('getContinentCities', async (data) => {
-    const response = await axios.get(`${DB_LINK}api/cities?${data.continents}&name=${data.search}`)
-    let info = {
-        response: response.data.response,
-        search: data.search,
-        checkBoxes: data.continents,
-        check: data.continentChecked
+    try {
+        const response = await axios.get(`${DB_LINK}api/cities?${data.continents}&name=${data.search}`)
+        let info = {
+            response: response.data.response,
+            search: data.search,
+            checkBoxes: data.continents,
+            check: data.continentChecked
+        }
+        return info
+    } catch (error) {
+        console.log(error)
+        let info = {
+            response: [],
+            search: data.search,
+            checkBoxes: data.continents,
+            check: data.continentChecked
+        }
+        return info
     }
-    return info
 })
 
 const doCity = createAsyncThunk('doCity', async (data) => {
@@ -58,10 +69,11 @@ const getMyCities = createAsyncThunk("getMyCities",async (id)=>{
     
 });
 
-const deleteMyCity = createAsyncThunk("deleteMyCity",async (id)=>{
+const deleteMyCity = createAsyncThunk("deleteMyCity",async ({id, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.delete(`${DB_LINK}api/cities/${id}`);
-    return response.data;
+        const response = await axios.delete(`${DB_LINK}api/cities/${id}`, headers);
+    return response.data.response;
 }
     catch(error){
         console.log(error)
@@ -72,9 +84,10 @@ const deleteMyCity = createAsyncThunk("deleteMyCity",async (id)=>{
     
 });
 
-const updateMyCity = createAsyncThunk("updateMyCity",async (data)=>{
+const updateMyCity = createAsyncThunk("updateMyCity",async ({data, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.put(`${DB_LINK}api/cities/${data.id}`, data.citie);
+        const response = await axios.put(`${DB_LINK}api/cities/${data.id}`, data.citie, headers);
     return response.data.response;
 }
     catch(error){
@@ -99,9 +112,10 @@ const getMyTineraries = createAsyncThunk("getMyTineraries",async (id)=>{
     
 });
 
-const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async (id)=>{
+const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async ({id, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.delete(`${DB_LINK}api/itineraries/${id}`);
+        const response = await axios.delete(`${DB_LINK}api/itineraries/${id}`, headers );
     return response.data;
 }
     catch(error){
@@ -109,12 +123,12 @@ const deleteMyTineraries = createAsyncThunk("deleteMyTineraries",async (id)=>{
             payload: 'An error has ocurred'
         }
     }
-    
 });
 
-const updateMyTineraries = createAsyncThunk("updateMyTineraries",async (data)=>{
+const updateMyTineraries = createAsyncThunk("updateMyTineraries",async ({data, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.put(`${DB_LINK}api/itineraries/${data.id}`, data.tinerarie);
+        const response = await axios.put(`${DB_LINK}api/itineraries/${data.id}`, data.tinerarie, headers);
     return response.data.response;
 }
     catch(error){
@@ -125,6 +139,8 @@ const updateMyTineraries = createAsyncThunk("updateMyTineraries",async (data)=>{
     }
     
 });
+
+
 
 
 
