@@ -48,7 +48,7 @@ export default function SignUp() {
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',
-                    text: response.data.message,
+                    text: response.response.data.message,
                 })
             }
         } catch (error) {
@@ -57,11 +57,11 @@ export default function SignUp() {
     }
 
     return (
-        <div class="card-form">
-            <div class="cont-h2">
+        <div className="card-form">
+            <div className="cont-h2">
                 <h2>SIGN UP</h2>
             </div>
-            <form class="form" ref={form}>
+            <form className="form" ref={form}>
                 <InputSignUp className="input-text" type="text" placeholder=" Name" id={name} />
                 <InputSignUp className="input-text" type="text" placeholder=" Last Name" id={lastName} />
                 <InputSignUp className="input-text" type="text" placeholder=" Photo" id={photo} />
@@ -71,7 +71,7 @@ export default function SignUp() {
                 <InputSignUp className="input-button" type="submit" value="Create account" fx={sendForm} />
             </form>
             <nav id="socialLogin">
-                <button href="#" class="google"></button>
+                <button href="#" className="google"></button>
             </nav>
             <p>Do you have an account?
                 <NavLink to='/signin'>
