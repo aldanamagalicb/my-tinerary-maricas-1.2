@@ -9,7 +9,7 @@ import { DB_LINK } from "../url";
 import axios from 'axios';
 
 export default function NewHotel() {
-    const {id, token} = useSelector(store => store.userReducer)
+    const {id} = useSelector(store => store.userReducer)
     const dispatch = useDispatch()
     const { doHotel } = hotelsActions
     const form = useRef()
@@ -36,12 +36,12 @@ export default function NewHotel() {
             name: name.current.value,
             photo: [photo.current.value, photo1.current.value, photo2.current.value],
             capacity: capacity.current.value,
-            cityId,
+            cityId : cityId.current.value,
             userId: id
         }
+        console.log(NewHotel)
         try {
-            let response = await dispatch(doHotel(NewHotel, token))
-            console.log(response.payload)
+            let response = await dispatch(doHotel(NewHotel))
             if (response.payload.success) {
                 Swal.fire({
                     icon: 'success',

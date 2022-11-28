@@ -38,7 +38,8 @@ const hotelsReducer = createReducer(initialState, (builder) => {
             return { ...state, hotelsAdmin: action.payload }
         })
         .addCase(deleteMyHotel.fulfilled, (state, action) => {
-            let hotel = state.hotelsAdmin.filter(hotel => hotel._id !== action.payload.data._id)
+            console.log(action.payload)
+            let hotel = state.hotelsAdmin.filter(hotel => hotel._id !== action.payload._id)
             return { ...state, hotelsAdmin: hotel }
         })
 
