@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export default function BotonUsers() {
     const {logout} = userActions
     const dispatch = useDispatch();
-    const { logged, token, name, photo } = useSelector(store => store.userReducer)
+    const { logged, token, myUser } = useSelector(store => store.userReducer)
     const [show, setShow] = useState(false);
     const display = () => {
         setShow(!show)}
@@ -41,8 +41,8 @@ export default function BotonUsers() {
         <div className='flex column'>
             {logged ? (
                 <div>
-                    <img src={photo} alt={name} width='65px' onClick={display} />
-                    <p className='text-white'>{name}</p>
+                    <img src={myUser.photo} alt={myUser.name} width='65px' onClick={display} />
+                    <p className='text-white'>{myUser.name}</p>
                 </div>
             )
                 : (
