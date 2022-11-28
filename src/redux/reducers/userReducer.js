@@ -50,6 +50,7 @@ const usersReducers = createReducer(initialState, (builder) => {
                 let { user} = response
                 let newState = {
                     ...state,
+                    myUser: user,
                     name: user.name,
                     photo: user.photo,
                     role: user.role,
