@@ -73,7 +73,7 @@ export default function MyCard(props) {
                     if (population !== '') {
                         data.citie.population = population
                     }
-                    dispatch(updateMyCity(data))
+                    dispatch(updateMyCity({data, token}))
                     // window.location.reload()
                 }
             })

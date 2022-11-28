@@ -84,9 +84,10 @@ const deleteMyCity = createAsyncThunk("deleteMyCity",async ({id, token})=>{
     
 });
 
-const updateMyCity = createAsyncThunk("updateMyCity",async (data)=>{
+const updateMyCity = createAsyncThunk("updateMyCity",async ({data, token})=>{
+    let headers = {headers: { Authorization: `Bearer ${token}`}};
     try{
-        const response = await axios.put(`${DB_LINK}api/cities/${data.id}`, data.citie);
+        const response = await axios.put(`${DB_LINK}api/cities/${data.id}`, data.citie, headers);
     return response.data.response;
 }
     catch(error){
