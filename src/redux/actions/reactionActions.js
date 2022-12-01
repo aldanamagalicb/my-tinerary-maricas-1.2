@@ -2,16 +2,16 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { DB_LINK } from "../../url";
 
-const getReaction = createAsyncThunk("getReaction", async (id) => {
+const getReaction = createAsyncThunk("getReaction", async (data) => {
 
     try{
-    const response = await axios.get(`${DB_LINK}api/reactions?itineraryId=${id}`);
+    const response = await axios.get(`${DB_LINK}api/reactions?${data.type}Id=${data.eventid}`);
     return {
         success: true,
         response: response.data,
         reqId: response.data.id
     };
-    } catch(error){
+    } catch(error){ 
         return {
         success: false,
         response: error.response.data.data,
@@ -38,7 +38,7 @@ const getUserReactions = createAsyncThunk("getUserReactions", async (id, token) 
 const updateReaction = createAsyncThunk("updateReaction", async ( datos ) => {
     let headers = { headers: { Authorization: `Bearer ${datos.token}` } };
     try {
-        const response = await axios.put(`${DB_LINK}api/reactions?itineraryId=${datos.id}&name=${datos.name}`,null, headers);
+        const response = await axios.put(`${DB_LINK}api/reactions?${datos.type}Id=${datos.id}&name=${datos.name}`,null, headers);
         return response.data.response;
     }
     catch (error) {

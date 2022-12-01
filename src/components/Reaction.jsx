@@ -7,7 +7,7 @@ import reactionActions from '../redux/actions/reactionActions'
 export default function Reaction(props) {
     const { token, id } = useSelector(state => state.userReducer)
     const dispatch = useDispatch()
-    let { itineraryid } = props
+    let { eventid, type } = props
     const { getReaction, updateReaction } = reactionActions
     const [reactions, setReaction] = useState([])
     const [like, setLike] = useState(true)
@@ -19,11 +19,11 @@ export default function Reaction(props) {
     }, [like])
 
     async function reactioness() {
-        let res = await dispatch(getReaction(itineraryid))
+        let res = await dispatch(getReaction({type, eventid}))
         setReaction(res.payload.response)
     }
 
-    async function likeItinerary(e) {
+    async function likeEvent(e) {
         let name
         let icon
         let iconBack
@@ -37,8 +37,9 @@ export default function Reaction(props) {
 
         let data = {
             token,
-            id: itineraryid,
+            id: eventid,
             name,
+            type
         }
         try {
             await dispatch(updateReaction(data))
@@ -58,12 +59,12 @@ export default function Reaction(props) {
                     return (
                     res ? (
                         <>
-                        <img src={reaction.icon} name={reaction.name} alt={reaction.name} key={reaction._id} width='25px' onClick={likeItinerary} />
+                        <img src={reaction.icon} name={reaction.name} alt={reaction.name} key={reaction._id} width='25px' onClick={likeEvent} />
                         <p>{reactions.lengthOfReactions[reaction.name]}</p>
                         </>
                     ) : (
                         <>
-                        <img src={reaction.iconBack} name={reaction.name} alt={reaction.name} key={reaction._id} width='25px' onClick={likeItinerary} />
+                        <img src={reaction.iconBack} name={reaction.name} alt={reaction.name} key={reaction._id} width='25px' onClick={likeEvent} />
                         <p>{reactions.lengthOfReactions[reaction.name]}</p>
                         </>
                     ))

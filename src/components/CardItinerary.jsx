@@ -26,7 +26,7 @@ export default function CardItinerary(props) {
 					hour
 				</h5>
 				<div className="flex gap-1 cont-reactions">
-					<Reaction itineraryid={id} />
+					<Reaction type='itinerary' eventid={id} />
 				</div>
 			</div>
 		</div>
