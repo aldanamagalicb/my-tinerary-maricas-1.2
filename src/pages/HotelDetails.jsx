@@ -16,8 +16,6 @@ export default function HotelDetails() {
       // eslint-disable-next-line
   }, []);
 
-  console.log(hotels);
-
   return (
     <>
       <DetailsHotel

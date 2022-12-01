@@ -55,7 +55,7 @@ export default function MyReactions() {
             <div className='cont-cities'>
                 <div className='Cities-card-container'>
                     {reaction.length > 0 && (reaction.map((elements) => {
-                        return <CardMyReactions tinerary={elements.itineraryId} key={elements._id} idR={elements._id} name={elements.name} photo={elements.icon} onClick={pullReaction} />
+                        return <CardMyReactions event={elements.itineraryId || elements.showId} key={elements._id} idR={elements._id} name={elements.name} photo={elements.icon} onClick={pullReaction} />
                     }))
                     }
                 </div>

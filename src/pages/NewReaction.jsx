@@ -14,20 +14,20 @@ export default function NewReaction() {
     const name = useRef()
     const icon = useRef()
     const iconBack = useRef()
-    const itineraryId = useRef();
-    const [itineraries, setItineraries] = useState([]);
+    const eventId = useRef();
+    const [events, setEvents] = useState([]);
     const { id } = useSelector(store => store.userReducer)
 
     useEffect(() => {
         axios.get(`${DB_LINK}api/itineraries`)
-            .then((res) => setItineraries(res.data.response));
+            .then((res) => setEvents(res.data.response));
         // eslint-disable-next-line
     }, []);
 
     async function createReaction(event) {
         event.preventDefault()
         let newtinerary = {
-            itineraryId: itineraryId.current.value,
+            eventId: eventId.current.value,
             name: name.current.value,
             icon: icon.current.value,
             iconBack: iconBack.current.value,
@@ -66,9 +66,9 @@ export default function NewReaction() {
             </div>
             <form className="form" ref={form}>
                 <InputSignUp className="input-text" type="text" placeholder=" Name" id={name} />
-                <select ref={itineraryId} className="input-text" id="itineraryId">
+                <select ref={eventId} className="input-text" id="eventId">
                     <option>Select the itinerary</option>
-                    {itineraries.map((itinerary) => ( <option key={itinerary._id} value={itinerary._id}> {itinerary.name}</option>))}
+                    {events.map((itinerary) => ( <option key={itinerary._id} value={itinerary._id}> {itinerary.name}</option>))}
                 </select>
                 <InputSignUp className="input-text" type="text" placeholder=" Icon" id={icon} />
                 <InputSignUp className="input-text" type="text" placeholder=" IconBack" id={iconBack} />
