@@ -1,14 +1,15 @@
 import { createReducer } from "@reduxjs/toolkit";
 import hotelsActions from "../actions/hotelsActions";
 
-const { getHotels, getContinentHotels, getMyHotels, doHotel, deleteMyHotel, updateMyHotel, getMyShow, updateMyShow, deleteMyShow } = hotelsActions
+const { getHotels, getShows, getContinentHotels, getMyHotels, doHotel, deleteMyHotel, updateMyHotel, getMyShow, updateMyShow, deleteMyShow } = hotelsActions
 
 const initialState = {
     hotels: [],
     hotelsAdmin: [],   
     myShows: [],
     order: '',
-    name: ''
+    name: '',
+    allShows: []
 }
 
 const hotelsReducer = createReducer(initialState, (builder) => {
@@ -20,6 +21,11 @@ const hotelsReducer = createReducer(initialState, (builder) => {
                 hotels: action.payload
             }
         })
+
+        .addCase(getShows.fulfilled, (state, action) => {
+            return { ...state, allShows: action.payload }
+        })
+
         .addCase(getContinentHotels.fulfilled, (state, action) => {
             return {
                 ...state,

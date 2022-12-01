@@ -7,6 +7,11 @@ const getCities = createAsyncThunk("getCities",async ()=>{
     return response.data.response;
 });
 
+const getItineraries = createAsyncThunk("getItineraries",async ()=>{
+    const response = await axios.get(`${DB_LINK}api/itineraries`);
+    return response.data.response;
+});
+
 const getContinentCities = createAsyncThunk('getContinentCities', async (data) => {
     try {
         const response = await axios.get(`${DB_LINK}api/cities?${data.continents}&name=${data.search}`)
@@ -146,6 +151,7 @@ const updateMyTineraries = createAsyncThunk("updateMyTineraries",async ({data, t
 
 const citiesActions = {
     getCities,
+    getItineraries,
     getContinentCities,
     doCity,
     getMyCities,
