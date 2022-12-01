@@ -89,6 +89,7 @@ background-color: #17788d;
 
 #socialLogin .google { background-image: url('../../../public/img/google-svgrepo-com.svg'); }
 
+
 @media screen and (max-width: 768px) {
     .card-form{
         width: 100%;
