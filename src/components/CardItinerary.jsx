@@ -1,7 +1,5 @@
 import React from "react";
 import Reaction from "./Reaction";
-import { useDispatch, useSelector } from "react-redux";
-import reactionActions from "../redux/actions/reactionActions";
 
 export default function CardItinerary(props) {
 	let { name, price, description, photo, duration, id } = props;

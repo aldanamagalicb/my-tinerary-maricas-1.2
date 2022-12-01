@@ -27,6 +27,7 @@ export default function BotonUsers() {
                                     <BotonDown text="NewTinerary" rute='/newtinerary' />
                                     <BotonDown text="MyShows" rute='/myshows' />
                                     <BotonDown text="NewShow" rute='/newshow' />
+                                    <BotonDown text="MyReactions" rute='/myreactions' />
                                 </>
                             )
                             : role === "admin" ?
@@ -40,8 +41,8 @@ export default function BotonUsers() {
                                         <BotonDown text="New City" rute='/newcity' />
                                         <BotonDown text="New Hotel" rute='/newhotel' />
                                         <BotonDown text="New Reaction" rute='/newreaction' />
+                                        <BotonDown text="MyReactions" rute='/myreactions' />
                                     </>
-
                                 ) :
                                 (
                                     <>

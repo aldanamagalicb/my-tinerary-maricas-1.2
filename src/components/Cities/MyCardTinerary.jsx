@@ -31,7 +31,6 @@ export default function MyCard(props) {
                     dispatch(deleteMyTineraries({id: tinerary._id, token}))
                 }
             })
-
         } catch (error) {
             console.log(error)
         }

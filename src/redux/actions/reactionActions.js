@@ -19,6 +19,22 @@ const getReaction = createAsyncThunk("getReaction", async (id) => {
     }
 });
 
+const getUserReactions = createAsyncThunk("getUserReactions", async (id, token) => {
+    let headers = { headers: { Authorization: `Bearer ${token}` } };
+    try{
+    const response = await axios.get(`${DB_LINK}api/reactions?userId=${id}`, headers);
+    return {
+        success: true,
+        response: response.data.data,
+    };
+    } catch(error){
+        return {
+        success: false,
+        response: error.response.data.data,
+        }
+    }
+});
+
 const updateReaction = createAsyncThunk("updateReaction", async ( datos ) => {
     let headers = { headers: { Authorization: `Bearer ${datos.token}` } };
     try {
@@ -31,15 +47,27 @@ const updateReaction = createAsyncThunk("updateReaction", async ( datos ) => {
             payload: 'An error has ocurred'
         }
     }
-
 });
 
-
-
+const deleteReaction = createAsyncThunk("deleteReaction", async ( {id, token }) => {
+    let headers = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+        const response = await axios.put(`${DB_LINK}api/reactions/${id}`, null, headers);
+        return response.data.response;
+    }
+    catch (error) {
+        console.log(error)
+        return {    
+            payload: 'An error has ocurred'
+        }
+    }
+});
 
 const reactionActions = {
     getReaction,
-    updateReaction
+    getUserReactions,
+    updateReaction,
+    deleteReaction
 }
 
 export default reactionActions;

@@ -96,7 +96,7 @@ export default function Cities() {
 
                         : <>
                             <article className="d-flex flex-column align-items-center">
-                                <img src="https://media4.giphy.com/media/IIkMsHnwjWmxzbGki9/200w.webp?cid=ecf05e474ox5rhx1zdwa5nz8db02wuslpxnmhlb9syirkk7u&rid=200w.webp&ct=s" alt="error" class="gif img-fluid " width="385px" />
+                                <img src="https://media4.giphy.com/media/IIkMsHnwjWmxzbGki9/200w.webp?cid=ecf05e474ox5rhx1zdwa5nz8db02wuslpxnmhlb9syirkk7u&rid=200w.webp&ct=s" alt="error" className="gif img-fluid " width="385px" />
                             </article>
                         </>
                 }
