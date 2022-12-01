@@ -102,9 +102,24 @@ const updateMyHotel = createAsyncThunk("updateMyHotel",async ({data, token})=>{
     }
     
 });
+
 const getMyShow = createAsyncThunk("getMyShow",async (id)=>{
     try{
         const response = await axios.get(`${DB_LINK}api/shows?userId=${id}`);
+    return response.data.data;
+}
+    catch(error){
+        console.log(error)
+        return {
+            payload: 'An error has ocurred'
+        }
+    }
+    
+});
+
+const getShows = createAsyncThunk("getShows",async ()=>{
+    try{
+        const response = await axios.get(`${DB_LINK}api/shows`);
     return response.data.data;
 }
     catch(error){
@@ -150,6 +165,7 @@ const updateMyShow = createAsyncThunk("updateMyShow",async ({data, token})=>{
 
 const hotelsActions = {
     getHotels,
+    getShows,
     getContinentHotels,
     doHotel,
     getMyHotels,

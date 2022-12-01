@@ -5,33 +5,51 @@ import InputSignUp from '../components/form/InputSignUp'
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { DB_LINK } from "../url";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import citiesActions from '../redux/actions/citiesActions';
+import hotelsActions from '../redux/actions/hotelsActions';
 
 
 export default function NewReaction() {
-
+    const { getItineraries } = citiesActions
+    const { getShows } = hotelsActions
+    const dispatch = useDispatch()
     const form = useRef()
     const name = useRef()
     const icon = useRef()
     const iconBack = useRef()
     const eventId = useRef();
-    const [events, setEvents] = useState([]);
-    const { id } = useSelector(store => store.userReducer)
+    const { allItineraries } = useSelector(store => store.citiesReducer)
+    const {allShows} = useSelector(store => store.hotelsReducer)
 
     useEffect(() => {
-        axios.get(`${DB_LINK}api/itineraries`)
-            .then((res) => setEvents(res.data.response));
+        dispatch(getItineraries())
+        dispatch(getShows())
+
+        
         // eslint-disable-next-line
     }, []);
 
+    let events = [...allItineraries, ...allShows]
+
+
     async function createReaction(event) {
         event.preventDefault()
+
+        let itineraires = allItineraries.find(itinerary => itinerary._id === eventId.current.value)
+        let shows = allShows.find(show => show._id === eventId.current.value)
+
         let newtinerary = {
-            eventId: eventId.current.value,
             name: name.current.value,
             icon: icon.current.value,
             iconBack: iconBack.current.value,
-            userId: [id],
+            userId: [],
+        }
+
+        if (itineraires) {
+            newtinerary.itineraryId = eventId.current.value
+        } else if (shows) {
+            newtinerary.showId = eventId.current.value
         }
         try {
             
@@ -62,13 +80,13 @@ export default function NewReaction() {
     return (
         <div className="card-form">
             <div className="cont-h2">
-                <h2>New tinerary</h2>
+                <h2>New Reaction</h2>
             </div>
             <form className="form" ref={form}>
                 <InputSignUp className="input-text" type="text" placeholder=" Name" id={name} />
                 <select ref={eventId} className="input-text" id="eventId">
-                    <option>Select the itinerary</option>
-                    {events.map((itinerary) => ( <option key={itinerary._id} value={itinerary._id}> {itinerary.name}</option>))}
+                    <option>Select the event</option>
+                    {events.map((event) => ( <option key={event._id} value={event._id}> {event.name}</option>))}
                 </select>
                 <InputSignUp className="input-text" type="text" placeholder=" Icon" id={icon} />
                 <InputSignUp className="input-text" type="text" placeholder=" IconBack" id={iconBack} />
