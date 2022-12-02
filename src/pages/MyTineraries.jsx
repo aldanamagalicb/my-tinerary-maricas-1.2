@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect} from 'react'
 import MyCardTinerary from '../components/Cities/MyCardTinerary'
 import '../components/form/form.css'
 import citiesActions from '../redux/actions/citiesActions'
@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 export default function MyTineraries() {
-
     const dispatch = useDispatch()
     const { myTineraries } = useSelector(store => store.citiesReducer)
     const { id } = useSelector(store => store.userReducer)
@@ -25,7 +24,7 @@ export default function MyTineraries() {
             <div className='cont-cities'>
                 <div className='Cities-card-container'>
                     {myTineraries.length > 0 && (myTineraries.map((tinerary) => {
-                        return <MyCardTinerary tinerary={tinerary} id={tinerary._id} />
+                        return <MyCardTinerary tinerary={tinerary} id={tinerary._id}  />
                     }))
                     }
                 </div>

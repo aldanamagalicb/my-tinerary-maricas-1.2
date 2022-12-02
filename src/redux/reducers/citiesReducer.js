@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import citiesActions from "../actions/citiesActions";
 
-const { getCities, getContinentCities, doCity, getMyCities, deleteMyCity, updateMyCity, getMyTineraries, deleteMyTineraries, updateMyTineraries } = citiesActions;
+const { getCities, getItineraries, getContinentCities, doCity, getMyCities, deleteMyCity, updateMyCity, getMyTineraries, deleteMyTineraries, updateMyTineraries } = citiesActions;
 
 const initialState = {
     myCities: [],
@@ -10,7 +10,8 @@ const initialState = {
     continentCities: [],
     searchInput: "",
     checkBoxes: "",
-    checkedCities: []
+    checkedCities: [],
+    allItineraries: []
 };
 
 const citiesReducer = createReducer(initialState,
@@ -22,6 +23,10 @@ const citiesReducer = createReducer(initialState,
                 return { ...state, 
                     allCities: action.payload, 
                     continentCities: check }
+            })
+
+            .addCase(getItineraries.fulfilled, (state, action) => {
+                return { ...state, allItineraries: action.payload }
             })
 
             .addCase(getContinentCities.fulfilled, (state, action) => {

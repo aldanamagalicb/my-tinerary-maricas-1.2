@@ -78,7 +78,7 @@ export default function Cities() {
             <div className='wrap flex center w-100 m-1'>
                 <form ref={input} className='flex justify-around mx-1 gap-2'>
                     {continentCities.map((continent) => {
-                        return <Checkbox continent={continent} value={continent} fx={filterCities}/>
+                        return <Checkbox continent={continent} key={continent._id} value={continent} fx={filterCities}/>
                         }
                     )}
                 </form>
@@ -91,12 +91,12 @@ export default function Cities() {
                         allCities !== null ?
 
                         allCities.length > 0 ? allCities?.map((city) => {
-                        return <CityCard city={city} id={city._id} />
+                        return <CityCard city={city} key={city._id} id={city._id} />
                     }) : <NotFound />
 
                         : <>
                             <article className="d-flex flex-column align-items-center">
-                                <img src="https://media4.giphy.com/media/IIkMsHnwjWmxzbGki9/200w.webp?cid=ecf05e474ox5rhx1zdwa5nz8db02wuslpxnmhlb9syirkk7u&rid=200w.webp&ct=s" alt="error" class="gif img-fluid " width="385px" />
+                                <img src="https://media4.giphy.com/media/IIkMsHnwjWmxzbGki9/200w.webp?cid=ecf05e474ox5rhx1zdwa5nz8db02wuslpxnmhlb9syirkk7u&rid=200w.webp&ct=s" alt="error" className="gif img-fluid " width="385px" />
                             </article>
                         </>
                 }

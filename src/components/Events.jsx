@@ -15,17 +15,18 @@ export default function Events() {
       .then((res) => setHotelsShow(res.data.data));
 // eslint-disable-next-line
   }, []);
-
   return (
     <div className="event">
       {hotelsShow.map((item) => (
         <CardShow
-          key={item.id}
+          idShow={item._id}
+          key={item._id}
           name={item.name}
           photo={item.photo}
           description={item.description}
           price={item.price} capacity={item.capacity}
           date={item.date}
+          id={item._id}
         />
       ))}
     </div>

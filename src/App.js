@@ -15,6 +15,8 @@ import MyCities from './pages/MyCities';
 import MyHotels from './pages/MyHotels';
 import MyTineraries from './pages/MyTineraries';
 import NewTinerary from './pages/NewTinerary';
+import NewReaction from './pages/NewReaction';
+import MyReactions from './pages/MyReactions';
 import MyShows from './pages/MyShows';
 import NewShow from './pages/NewShow';
 import Profile from './pages/Profile';
@@ -59,6 +61,8 @@ function App() {
         <Route element={<ProtectedRoute isAllowed={role === "admin"} reDirect="/" />}>
           <Route path="/newcity" element={<NewCity />} />
           <Route path="/newhotel" element={<NewHotel />} />
+          <Route path="/newreaction" element={<NewReaction />} />
+          <Route path="/myreactions" element={<MyReactions />} />
           <Route path="/mycities" element={<MyCities />} />
           <Route path="/myhotels" element={<MyHotels />} />
         </Route>
@@ -68,6 +72,7 @@ function App() {
           <Route path="/newtinerary" element={<NewTinerary />} />
           <Route path="/myshows" element={<MyShows />} />
           <Route path="/newshow" element={<NewShow />} />
+          <Route path="/myreactions" element={<MyReactions />} />
         </Route>
       </Routes>
     </Layout>
