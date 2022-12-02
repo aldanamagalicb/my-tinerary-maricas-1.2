@@ -19,6 +19,7 @@ export default function Events() {
     <div className="event">
       {hotelsShow.map((item) => (
         <CardShow
+          idShow={item._id}
           key={item._id}
           name={item.name}
           photo={item.photo}
