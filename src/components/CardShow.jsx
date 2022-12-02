@@ -1,5 +1,6 @@
 import React from "react";
 import Reaction from "./Reaction";
+import CommentsCard from "./CommentsCard";
 
 
 export default function CardShow(props) {
@@ -22,8 +23,11 @@ export default function CardShow(props) {
                 </h5>
                 <h5>Date: {date} </h5>
                 <div className="flex gap-1 cont-reactions">
-					<Reaction type='show' eventid={id} />
-				</div>
+                    <Reaction type='show' eventid={id} />
+                </div>
+                <div className="input-comment">
+                    <CommentsCard eventId={id}></CommentsCard>
+                </div>
             </div>
         </div>
     )
